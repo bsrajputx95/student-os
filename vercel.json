@@ -9,10 +9,7 @@
   "functions": {
     "api/index.mjs": {
       "maxDuration": 120,
-      "includeFiles": [
-        "server/**",
-        "shared/**"
-      ]
+      "includeFiles": "{server,shared}/**"
     }
   },
   "rewrites": [
