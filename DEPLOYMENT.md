@@ -2,6 +2,8 @@
 
 This deployment preserves the full student/staff application and populated fictional HKBK campus. It is a presentation environment, not an institution's operational student-record service.
 
+Public site: **https://studentos-hkbk.vercel.app**. Source: **https://github.com/bsrajputx95/student-os** (private). Both shorter requested Vercel addresses were already assigned; the selected HKBK address is verified and attached to this project.
+
 ## Architecture
 
 - Vite builds static UI/assets for Vercel's CDN. `/api/*` runs the existing Node 24 application through `api/index.mjs`.
@@ -25,3 +27,11 @@ The GitHub repository contains application source, fictional fixture generators,
 Run `npm run verify` before release. Hosted tests cover parsed request bodies, strong conditional reads/writes, cold initialization races, durable login, withheld success/cookies on storage failure, concurrent writer conflicts and private attachment ownership. After deployment verify a student login, progress/save, cold refresh, faculty access, source-linked learning and a real Quid answer. A successful static build alone does not verify the backend.
 
 Keep the Blob store private. Back up the cloud snapshot through an authenticated operator tool before deleting a deployment resource or changing snapshot format. Do not remove the store to reset a presentation without retaining its current snapshot. A real college rollout needs a managed transactional database/object storage, workers/scheduler, institution enrollment and separate operational/privacy reviews; see `OPERATIONS.md`.
+
+## Verified release, 21 October 2026
+
+All **134 tests** passed, the 168-module source check passed, and Vercel's Node 24 production build reached READY. `npm audit` reported zero known vulnerabilities after updating the affected development dependencies. This is an audit snapshot, not an independent security certification.
+
+Unauthenticated HTTPS checks returned 200 for the UI, health, campus summary, local font and isolated practice runner. The public campus has 400 students and 100 staff. Student and faculty password login worked. A lesson bookmark survived a full reload and the next deployment; the server SQL runner scored the reference query 100 across three fresh datasets. Faculty Quid returned a live AI answer with 19 fourth-year DSA candidates, named scores and an associated calculated report. The teacher roster displayed 40 paginated rows with no horizontal overflow at 1366×900. No runtime errors were returned for the final deployment during the focused verification window.
+
+The current deployment was uploaded using the authenticated Vercel CLI. Automatic GitHub push deployments are **not connected**: Vercel requires a GitHub Login Connection on the account. After linking GitHub in Vercel account settings, run `vercel git connect https://github.com/bsrajputx95/student-os.git --yes` from this checkout. The CLI's GitHub authorization also lacks workflow-write scope; the tested CI recipe is provided as `scripts/github-ci.example.yml` rather than an active GitHub workflow. No successful hosted CI run is claimed. Manual release remains `vercel deploy --prod --yes`.

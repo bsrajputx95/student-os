@@ -2,7 +2,7 @@
 
 Updated 21 October 2026. The original findings and approved backlog remain in [PROJECT_AUDIT.md](PROJECT_AUDIT.md). This ledger describes the current implementation; the audit is a historical baseline.
 
-The website now has connected student, teacher, placement, administrator and support workflows. Local workflows and external adapters are distinguished below. This is a validated local release candidate, not a deployed or fully certified college service.
+The website now has connected student, teacher, placement, administrator and support workflows. The populated presentation environment is deployed at [studentos-hkbk.vercel.app](https://studentos-hkbk.vercel.app), with private source at [bsrajputx95/student-os](https://github.com/bsrajputx95/student-os). It has durable private cloud snapshots and a separately generated fictional campus. Institution pilot readiness and external adapters are distinguished below; this is not a certified college service. See [DEPLOYMENT.md](DEPLOYMENT.md) for hosting limits and verified release details.
 
 | Area | Implemented locally | Remaining / activation gate |
 | --- | --- | --- |
@@ -21,6 +21,8 @@ The website now has connected student, teacher, placement, administrator and sup
 | Storage and operations | 6 versioned migrations; indexed memberships/public directory/evidence/files/submissions/assessment sessions/jobs; scoped uploads with quotas/signature checks; attachment-aware backup/restore; durable retries/deduplication; request IDs/metrics/production logs; health endpoint; production origin/cookie/CSP checks; route splitting, gzip/ETag; CI configuration | JSON aggregates still primary in several domains; multi-worker leases, full endpoint pagination, object storage/scanning, staging/deployment/alerts and independent dependency/security/accessibility review |
 
 ## Verification evidence
+
+The hosted release passes **134/134 tests** and the **168-module** source check. Vercel reached READY on Node 24. Public sign-in, faculty access, live grounded Quid, a persisted bookmark across deployment and server SQL evaluation were verified. The final deployment's focused runtime-error query returned zero records. Cloud snapshots use strong reads and conditional writes, buffer responses until saving, retry safe read conflicts and reject competing writes with 409. Local institution mode retains its existing storage/security behavior. Automatic GitHub push deployment awaits the Vercel account's GitHub Login Connection; source is pushed and manual CLI deployment is operational.
 
 The latest interface pass uses ink navigation, lime wayfinding, violet actions, local typography and an original animated orbit scene across student, staff and sign-in views. The dashboard surfaces the existing daily plan, actual streak and preparation metrics, six skill signals, unfinished track courses, project milestones and contribution history. Shared surfaces, tabs, forms, dialogs and Quid receive the same visual treatment. Motion includes pointer response, counters, route entry, card reveals and hover feedback, with reduced-motion overrides.
 
