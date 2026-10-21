@@ -1,0 +1,1253 @@
+[
+  {
+    "id": "amazon-10508052",
+    "company": "Amazon",
+    "title": "SDE I Intern · University Talent Acquisition",
+    "location": "Bengaluru, Hyderabad, Pune & other India locations",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      4
+    ],
+    "duration": "6 months · Jan–Jun 2027 starts",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10508052/sde-i-intern-amazon-university-talent-acquisition",
+    "eligibility": "Bachelor’s or Master’s students graduating in 2027; full-time availability for 24–26 weeks.",
+    "description": "An India-based software engineering internship working on services and distributed systems alongside an engineering team.",
+    "requirements": [
+      "Graduation year 2027",
+      "Programming and computer science fundamentals",
+      "Full-time, in-person availability"
+    ],
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "initial": "A",
+    "color": "purple",
+    "channel": "Off campus",
+    "posted": "Checked 2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10513277",
+    "company": "Amazon",
+    "title": "Software Development Engineer Intern · May 2027",
+    "location": "Bengaluru, India",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      4
+    ],
+    "duration": "May 2027 · confirm duration with employer",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10513277/software-development-engineer-intern-may-2027-2-month-amazon-university-talent-acquisition",
+    "eligibility": "Students graduating in 2027. The source contains conflicting duration text; confirm the exact term with Amazon.",
+    "description": "A university software internship covering development, testing, and engineering collaboration.",
+    "requirements": [
+      "Graduation year 2027",
+      "A general-purpose programming language",
+      "Data structures or object-oriented design"
+    ],
+    "skills": [
+      "DSA",
+      "Backend",
+      "DevOps"
+    ],
+    "initial": "A",
+    "color": "blue",
+    "channel": "Off campus",
+    "posted": "Checked 2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "salesforce-jr337715",
+    "company": "Salesforce",
+    "title": "Summer 2027 Intern · Software Engineer",
+    "location": "Bengaluru / Hyderabad, India",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      3
+    ],
+    "duration": "Summer 2027",
+    "sourceUrl": "https://careers.salesforce.com/en/jobs/jr337715/summer-2027-intern-software-engineer/",
+    "eligibility": "B.E./B.Tech students in the class of 2028; eligible technical branches are listed by Salesforce.",
+    "description": "Contribute to software development and testing with a Salesforce engineering team.",
+    "requirements": [
+      "Graduation year 2028",
+      "Programming and problem-solving skills",
+      "Relevant engineering degree; check official branch requirements"
+    ],
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases",
+      "Frontend"
+    ],
+    "initial": "S",
+    "color": "mint",
+    "channel": "Off campus",
+    "posted": "Checked 2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "nvidia-jr2023495",
+    "company": "NVIDIA",
+    "title": "2027 Internships · Software Engineering",
+    "location": "Santa Clara, California, USA",
+    "country": "USA",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "12 weeks · 2027",
+    "sourceUrl": "https://jobs.nvidia.com/careers/job/893397026205?domain=nvidia.com",
+    "eligibility": "Actively enrolled B.S., M.S., or Ph.D. students. Check location and work authorization requirements.",
+    "description": "Software internship talent intake across developer tools, cloud, infrastructure, and machine learning operations.",
+    "requirements": [
+      "Relevant university enrollment",
+      "Programming and systems foundations",
+      "Confirm US work authorization and team requirements"
+    ],
+    "skills": [
+      "DSA",
+      "Backend",
+      "DevOps"
+    ],
+    "initial": "N",
+    "color": "peach",
+    "channel": "Off campus",
+    "posted": "Checked 2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "servicenow-jb0076218",
+    "company": "ServiceNow",
+    "title": "AI Engineering · Associate Software Engineer Intern",
+    "location": "Santa Clara, California, USA",
+    "country": "USA",
+    "type": "Internship",
+    "years": [
+      2,
+      3
+    ],
+    "duration": "12 weeks · Summer 2027",
+    "sourceUrl": "https://careers.servicenow.com/jobs/744000155345889/ai-engineering-assoc-software-engineer-internships-summer-2027-bachelors/",
+    "eligibility": "Bachelor’s students graduating no earlier than May 2028; full-time summer availability.",
+    "description": "Full-stack engineering practice spanning interfaces, APIs, testing, and delivery workflows.",
+    "requirements": [
+      "Bachelor’s graduation no earlier than May 2028",
+      "Exposure to full-stack development",
+      "12-week summer availability"
+    ],
+    "skills": [
+      "Frontend",
+      "Backend",
+      "DevOps"
+    ],
+    "initial": "S",
+    "color": "pink",
+    "channel": "Off campus",
+    "posted": "Checked 2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "atlassian-26266",
+    "company": "Atlassian",
+    "title": "Software Engineer Intern · Summer 2027 U.S.",
+    "location": "Seattle / San Francisco, USA",
+    "country": "USA",
+    "type": "Internship",
+    "years": [
+      2,
+      3
+    ],
+    "duration": "12 weeks · Summer 2027",
+    "sourceUrl": "https://www.atlassian.com/company/careers/details/26266",
+    "eligibility": "US locations; the source states no sponsorship and excludes F1/J1 students. Read full eligibility before applying.",
+    "description": "A software engineering internship with team projects, mentorship, and technical development.",
+    "requirements": [
+      "Work from Seattle or San Francisco",
+      "Check university and work authorization eligibility",
+      "No work sponsorship for this role"
+    ],
+    "skills": [
+      "DSA",
+      "Backend",
+      "Communication"
+    ],
+    "initial": "A",
+    "color": "purple",
+    "channel": "Off campus",
+    "posted": "Checked 2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "atlassian-26275",
+    "company": "Atlassian",
+    "title": "Software Engineer Intern · 2027 Canada",
+    "location": "Vancouver / Burnaby / Richmond, Canada",
+    "country": "Canada",
+    "type": "Internship",
+    "years": [
+      2,
+      3
+    ],
+    "duration": "15 weeks · Summer or Fall 2027",
+    "sourceUrl": "https://www.atlassian.com/company/careers/details/26275",
+    "eligibility": "Returning university students graduating by August 2028. Employer sponsorship is unavailable at hire.",
+    "description": "A Canadian software internship with coding, product engineering, and mentorship.",
+    "requirements": [
+      "Return to a relevant degree after the internship",
+      "15-week full-time availability",
+      "Check Canadian work authorization requirements"
+    ],
+    "skills": [
+      "DSA",
+      "Backend",
+      "Communication"
+    ],
+    "initial": "A",
+    "color": "blue",
+    "channel": "Off campus",
+    "posted": "Checked 2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "stripe-8157838",
+    "company": "Stripe",
+    "title": "Software Engineer · New Grad",
+    "location": "Toronto, Canada · confirm location on source",
+    "country": "Canada",
+    "type": "Full-time",
+    "years": [
+      4
+    ],
+    "duration": "New graduate · 2027",
+    "sourceUrl": "https://stripe.com/careers/listing/software-engineer-new-grad/8157838",
+    "eligibility": "Relevant degree by summer 2027 or equivalent experience; no more than 18 months of professional experience excluding internships.",
+    "description": "An early-career software engineering role at Stripe. Verify the location shown on the current posting.",
+    "requirements": [
+      "Degree by summer 2027 or equivalent experience",
+      "Programming experience from coursework or projects",
+      "Experience collaborating on a coding project"
+    ],
+    "skills": [
+      "DSA",
+      "Backend",
+      "Communication"
+    ],
+    "initial": "S",
+    "color": "mint",
+    "channel": "Off campus",
+    "posted": "Checked 2026-10-19",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-work-from-home-artificial-intelligence-ai-internship-at-inamigos-foundation1792401069",
+    "company": "InAmigos Foundation",
+    "title": "Artificial Intelligence (AI)",
+    "location": "Work from home",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "duration": "2 Weeks",
+    "compensation": "Unpaid",
+    "sourceUrl": "https://internshala.com/internship/detail/work-from-home-artificial-intelligence-ai-internship-at-inamigos-foundation1792401069/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted Few hours ago",
+    "skills": [
+      "Frontend",
+      "Backend",
+      "DSA"
+    ],
+    "eligibility": "See the listing for student eligibility, dates, and availability.",
+    "description": "InAmigos Foundation lists this internship on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "I",
+    "color": "purple",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-work-from-home-ai-web-development-internship-at-inamigos-foundation1792398857",
+    "company": "InAmigos Foundation",
+    "title": "AI Web Development",
+    "location": "Work from home",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "duration": "2 Weeks",
+    "compensation": "Unpaid",
+    "sourceUrl": "https://internshala.com/internship/detail/work-from-home-ai-web-development-internship-at-inamigos-foundation1792398857/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted Few hours ago",
+    "skills": [
+      "Frontend",
+      "Backend",
+      "DSA"
+    ],
+    "eligibility": "See the listing for student eligibility, dates, and availability.",
+    "description": "InAmigos Foundation lists this internship on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "I",
+    "color": "blue",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-work-from-home-web-development-internship-at-basti-ki-pathshala-foundation1792402424",
+    "company": "Basti Ki Pathshala Foundation",
+    "title": "Web Development",
+    "location": "Work from home",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "duration": "1 Month",
+    "compensation": "Unpaid",
+    "sourceUrl": "https://internshala.com/internship/detail/work-from-home-web-development-internship-at-basti-ki-pathshala-foundation1792402424/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted Few hours ago",
+    "skills": [
+      "Frontend",
+      "Backend",
+      "DSA"
+    ],
+    "eligibility": "See the listing for student eligibility, dates, and availability.",
+    "description": "Basti Ki Pathshala Foundation lists this internship on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "B",
+    "color": "mint",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-work-from-home-ai-research-internship-at-inamigos-foundation1792401064",
+    "company": "InAmigos Foundation",
+    "title": "AI Research",
+    "location": "Work from home",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "duration": "2 Weeks",
+    "compensation": "Unpaid",
+    "sourceUrl": "https://internshala.com/internship/detail/work-from-home-ai-research-internship-at-inamigos-foundation1792401064/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted Few hours ago",
+    "skills": [
+      "Databases",
+      "Communication"
+    ],
+    "eligibility": "See the listing for student eligibility, dates, and availability.",
+    "description": "InAmigos Foundation lists this internship on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "I",
+    "color": "peach",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-technical-internship-in-multiple-locations-at-cyberfrat1791880588",
+    "company": "CyberFrat",
+    "title": "Technical",
+    "location": "Thane, Dombivli +2",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "duration": "6 Months",
+    "compensation": "₹ 4,000 - 5,000 /month",
+    "sourceUrl": "https://internshala.com/internship/detail/technical-internship-in-multiple-locations-at-cyberfrat1791880588/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted 6 days ago",
+    "skills": [
+      "Frontend",
+      "Backend",
+      "DSA"
+    ],
+    "eligibility": "See the listing for student eligibility, dates, and availability.",
+    "description": "CyberFrat lists this internship on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "C",
+    "color": "pink",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-data-analyst-internship-in-mumbai-at-apport-software-solutions-private-limited1792412806",
+    "company": "Apport Software Solutions Private Limited",
+    "title": "Data Analyst",
+    "location": "Mumbai",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "duration": "6 Months",
+    "compensation": "₹ 7,000 - 10,000 /month",
+    "sourceUrl": "https://internshala.com/internship/detail/data-analyst-internship-in-mumbai-at-apport-software-solutions-private-limited1792412806/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted Few hours ago",
+    "skills": [
+      "Databases",
+      "Communication"
+    ],
+    "eligibility": "See the listing for student eligibility, dates, and availability.",
+    "description": "Apport Software Solutions Private Limited lists this internship on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "A",
+    "color": "purple",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-software-development-internship-in-bangalore-at-penguin-solutions1792413587",
+    "company": "Penguin Solutions",
+    "title": "Software Development",
+    "location": "Bangalore",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "duration": "6 Months",
+    "compensation": "₹ 30,000 - 35,000 /month",
+    "sourceUrl": "https://internshala.com/internship/detail/software-development-internship-in-bangalore-at-penguin-solutions1792413587/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted Few hours ago",
+    "skills": [
+      "Frontend",
+      "Backend",
+      "DSA"
+    ],
+    "eligibility": "See the listing for student eligibility, dates, and availability.",
+    "description": "Penguin Solutions lists this internship on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "P",
+    "color": "blue",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-data-mining-internship-in-noida-at-times-internet-limited1792396423",
+    "company": "Times Internet Limited",
+    "title": "Data Mining",
+    "location": "Noida",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "duration": "6 Months",
+    "compensation": "₹ 10,000 /month",
+    "sourceUrl": "https://internshala.com/internship/detail/data-mining-internship-in-noida-at-times-internet-limited1792396423/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted Few hours ago",
+    "skills": [
+      "Databases",
+      "Communication"
+    ],
+    "eligibility": "See the listing for student eligibility, dates, and availability.",
+    "description": "Times Internet Limited lists this internship on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "T",
+    "color": "mint",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-full-stack-development-internship-in-mohali-at-alphanumeric-ideas-private-limited1792412901",
+    "company": "Alphanumeric Ideas Private Limited",
+    "title": "Full Stack Development",
+    "location": "Mohali",
+    "country": "India",
+    "type": "Internship",
+    "years": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "duration": "6 Months",
+    "compensation": "₹ 3,000 - 6,000 /month",
+    "sourceUrl": "https://internshala.com/internship/detail/full-stack-development-internship-in-mohali-at-alphanumeric-ideas-private-limited1792412901/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted Few hours ago",
+    "skills": [
+      "Frontend",
+      "Backend",
+      "DSA"
+    ],
+    "eligibility": "See the listing for student eligibility, dates, and availability.",
+    "description": "Alphanumeric Ideas Private Limited lists this internship on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "A",
+    "color": "peach",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-fresher-robotics-and-ai-trainer-job-in-multiple-locations-at-robo-labs1791955353",
+    "company": "Robo Labs",
+    "title": "Robotics And AI Trainer",
+    "location": "Kolkata, Bandel",
+    "country": "India",
+    "type": "Full-time",
+    "years": [
+      4
+    ],
+    "duration": "Entry level",
+    "compensation": "₹ 2,00,000 - 3,00,000 /year",
+    "sourceUrl": "https://internshala.com/job/detail/fresher-robotics-and-ai-trainer-job-in-multiple-locations-at-robo-labs1791955353/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted 5 days ago",
+    "skills": [
+      "Frontend",
+      "Backend",
+      "DSA"
+    ],
+    "eligibility": "No experience required",
+    "description": "Robo Labs lists this entry-level role on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "R",
+    "color": "pink",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "internshala-fresher-sap-cloud-developer-trainee-job-in-puducheri-at-crossover-it-consulting-services-llp1791981815",
+    "company": "CrossOver IT Consulting Services LLP",
+    "title": "SAP Cloud Developer - Trainee",
+    "location": "Puducheri",
+    "country": "India",
+    "type": "Full-time",
+    "years": [
+      4
+    ],
+    "duration": "Entry level",
+    "compensation": "₹ 2,05,000 - 4,30,002 /year",
+    "sourceUrl": "https://internshala.com/job/detail/fresher-sap-cloud-developer-trainee-job-in-puducheri-at-crossover-it-consulting-services-llp1791981815/?utm_source=chatgpt_is_app",
+    "source": "Internshala",
+    "sourceKind": "job-board",
+    "posted": "Posted 5 days ago",
+    "skills": [
+      "Backend",
+      "DevOps"
+    ],
+    "eligibility": "No experience required",
+    "description": "CrossOver IT Consulting Services LLP lists this entry-level role on Internshala. Open the source for the full description, requirements, and application process.",
+    "requirements": [
+      "Confirm eligibility on the source listing",
+      "Check the work arrangement and application deadline"
+    ],
+    "initial": "C",
+    "color": "purple",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-3120598",
+    "company": "Amazon",
+    "title": "Software Development Intern, Intech",
+    "location": "Virtual, Brazil",
+    "country": "Brazil",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/3120598/software-development-intern-intech",
+    "posted": "November  4, 2025",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "purple",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10418355",
+    "company": "Amazon",
+    "title": "2027 Software Dev Engineer Intern",
+    "location": "Dublin, IRL",
+    "country": "IRL",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10418355/2027-software-dev-engineer-intern",
+    "posted": "May 13, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "blue",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10544261",
+    "company": "Amazon",
+    "title": "Software Developer Intern, Field Innovation, Security Search and Observability (SSO)",
+    "location": "Singapore, SGP",
+    "country": "SGP",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10544261/software-developer-intern-field-innovation-security-search-and-observability-sso",
+    "posted": "September 16, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "mint",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10568017",
+    "company": "Amazon",
+    "title": "2027 Software Dev Engineer Intern - Netherlands",
+    "location": "Amsterdam, NLD",
+    "country": "NLD",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10568017/2027-software-dev-engineer-intern-netherlands",
+    "posted": "October  5, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "peach",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10576864",
+    "company": "Amazon",
+    "title": "2027 Software Dev Engineer Intern - ZAF",
+    "location": "Cape Town, ZAF",
+    "country": "ZAF",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10576864/2027-software-dev-engineer-intern-zaf",
+    "posted": "October 13, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "pink",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10555855",
+    "company": "Amazon",
+    "title": "2027 Software Dev Engineer Intern - Spain",
+    "location": "Madrid, Spain",
+    "country": "Spain",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10555855/2027-software-dev-engineer-intern-spain",
+    "posted": "September 22, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "purple",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10554706",
+    "company": "Amazon",
+    "title": "2027 Software Dev Engineer Intern - Luxembourg",
+    "location": "Luxembourg, LUX",
+    "country": "LUX",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10554706/2027-software-dev-engineer-intern-luxembourg",
+    "posted": "September 21, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "blue",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10554701",
+    "company": "Amazon",
+    "title": "2027 Software Dev Engineer Intern - Germany",
+    "location": "Berlin, Germany",
+    "country": "Germany",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10554701/2027-software-dev-engineer-intern-germany",
+    "posted": "September 21, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "mint",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10555873",
+    "company": "Amazon",
+    "title": "2027 Software Dev Engineer Intern - Poland",
+    "location": "Gdansk, Poland",
+    "country": "Poland",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10555873/2027-software-dev-engineer-intern-poland",
+    "posted": "September 22, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "peach",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10535280",
+    "company": "Amazon",
+    "title": "Software Development Engineer Intern, ROBOTICS - 2027",
+    "location": "Toronto, Canada",
+    "country": "Canada",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10535280/software-development-engineer-intern-robotics-2027",
+    "posted": "September  9, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "pink",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10554652",
+    "company": "Amazon",
+    "title": "2027 Software Dev Engineer Intern - Iași, Romania",
+    "location": "Iasi, ROU",
+    "country": "ROU",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10554652/2027-software-dev-engineer-intern-ia-i-romania",
+    "posted": "September 21, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "purple",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10554586",
+    "company": "Amazon",
+    "title": "2027 Software Dev Engineer Intern - United Kingdom",
+    "location": "London, UK",
+    "country": "UK",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10554586/2027-software-dev-engineer-intern-united-kingdom",
+    "posted": "September 21, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "blue",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10552937",
+    "company": "Amazon",
+    "title": "Software Development Engineer Intern - Summer 2027 (USA)",
+    "location": "Seattle, USA",
+    "country": "USA",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10552937/software-development-engineer-intern-summer-2027-usa",
+    "posted": "September 17, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "mint",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10553947",
+    "company": "Amazon",
+    "title": "Software Development Engineer Intern - Summer 2027 (CAN)",
+    "location": "Vancouver, Canada",
+    "country": "Canada",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10553947/software-development-engineer-intern-summer-2027-can",
+    "posted": "September 18, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "peach",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-10517567",
+    "company": "Amazon",
+    "title": "Software Development Engineer Intern, Annapurna Labs - 2027",
+    "location": "Cupertino, USA",
+    "country": "USA",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/10517567/software-development-engineer-intern-annapurna-labs-2027",
+    "posted": "August 27, 2026",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "pink",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  },
+  {
+    "id": "amazon-3136815",
+    "company": "Amazon",
+    "title": "Robotics - Software Development Engineer Intern - 2026 - Toronto",
+    "location": "Toronto, Canada",
+    "country": "Canada",
+    "type": "Internship",
+    "years": [
+      2,
+      3,
+      4
+    ],
+    "duration": "See employer posting",
+    "sourceUrl": "https://www.amazon.jobs/en/jobs/3136815/robotics-software-development-engineer-intern-2026-toronto",
+    "posted": "December  3, 2025",
+    "skills": [
+      "DSA",
+      "Backend",
+      "Databases"
+    ],
+    "eligibility": "Review the employer’s education, availability, and country-specific work authorization requirements.",
+    "description": "An internship listed in Amazon’s official careers index. View the employer page for the exact team, term, and requirements.",
+    "requirements": [
+      "Review current university requirements",
+      "Verify location and work authorization",
+      "Check the exact internship term"
+    ],
+    "initial": "A",
+    "color": "purple",
+    "channel": "Off campus",
+    "verifiedAt": "2026-10-19",
+    "source": "Employer website",
+    "sourceKind": "employer",
+    "deadline": null,
+    "status": "Listed on source"
+  }
+]

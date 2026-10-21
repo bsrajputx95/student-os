@@ -1,0 +1,10 @@
+node_modules/
+dist/
+data/
+.runtime/
+.env
+.env.*
+!.env.example
+.vercel/
+*.log
+server/presentation-campus.sqlite.gz

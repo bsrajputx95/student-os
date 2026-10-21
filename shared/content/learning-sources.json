@@ -1,0 +1,218 @@
+[
+  {
+    "id": "docker-start",
+    "source": "https://docs.docker.com/get-started/",
+    "resolvedSource": "https://docs.docker.com/get-started/",
+    "status": 200,
+    "title": "Get started | Docker Docs",
+    "retrievedAt": "2026-10-21T13:22:48.777Z",
+    "attribution": "Docker"
+  },
+  {
+    "id": "github-learn",
+    "source": "https://learn.github.com/",
+    "resolvedSource": "https://learn.github.com/",
+    "status": 200,
+    "title": "GitHub Learn",
+    "retrievedAt": "2026-10-21T13:22:51.000Z",
+    "attribution": "GitHub"
+  },
+  {
+    "id": "google-ml-classification",
+    "source": "https://developers.google.com/machine-learning/crash-course/classification",
+    "resolvedSource": "https://developers.google.com/machine-learning/crash-course/classification?hl=ar",
+    "status": 200,
+    "title": "التصنيف &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers",
+    "retrievedAt": "2026-10-21T13:22:53.324Z",
+    "attribution": "Google for Developers"
+  },
+  {
+    "id": "google-ml-course",
+    "source": "https://developers.google.com/machine-learning/crash-course",
+    "resolvedSource": "https://developers.google.com/machine-learning/crash-course",
+    "status": 200,
+    "title": "Machine Learning &nbsp;|&nbsp; Google for Developers",
+    "retrievedAt": "2026-10-21T13:22:50.709Z",
+    "attribution": "Google for Developers"
+  },
+  {
+    "id": "google-ml-data",
+    "source": "https://developers.google.com/machine-learning/crash-course/overfitting",
+    "resolvedSource": "https://developers.google.com/machine-learning/crash-course/overfitting?hl=zh-cn",
+    "status": 200,
+    "title": "数据集、泛化和过拟合 &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers",
+    "retrievedAt": "2026-10-21T13:22:54.497Z",
+    "attribution": "Google for Developers"
+  },
+  {
+    "id": "google-ml-linear",
+    "source": "https://developers.google.com/machine-learning/crash-course/linear-regression",
+    "resolvedSource": "https://developers.google.com/machine-learning/crash-course/linear-regression?hl=pt-br",
+    "status": 200,
+    "title": "Regressão linear &nbsp;|&nbsp; Machine Learning &nbsp;|&nbsp; Google for Developers",
+    "retrievedAt": "2026-10-21T13:22:51.521Z",
+    "attribution": "Google for Developers"
+  },
+  {
+    "id": "ibm-university",
+    "source": "https://skillsbuild.org/learning-catalog/university-catalog",
+    "resolvedSource": "https://skillsbuild.org/learning-catalog/university-catalog",
+    "status": 200,
+    "title": "IBM SkillsBuild Learning Catalog | Free AI, Cybersecurity, Data &amp; Technology Courses",
+    "retrievedAt": "2026-10-21T13:22:55.306Z",
+    "attribution": "IBM SkillsBuild"
+  },
+  {
+    "id": "kubernetes-basics",
+    "source": "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+    "resolvedSource": "https://kubernetes.io/docs/tutorials/kubernetes-basics/",
+    "status": 200,
+    "title": "Learn Kubernetes Basics | Kubernetes",
+    "retrievedAt": "2026-10-21T13:22:48.790Z",
+    "attribution": "Kubernetes"
+  },
+  {
+    "id": "mdn-a11y",
+    "source": "https://developer.mozilla.org/en-US/curriculum/core/accessibility/",
+    "resolvedSource": "https://developer.mozilla.org/en-US/curriculum/core/accessibility/",
+    "status": 200,
+    "title": "7. Accessibility",
+    "retrievedAt": "2026-10-21T13:22:48.303Z",
+    "attribution": "MDN Web Docs"
+  },
+  {
+    "id": "mdn-css",
+    "source": "https://developer.mozilla.org/en-US/curriculum/core/css-fundamentals/",
+    "resolvedSource": "https://developer.mozilla.org/en-US/curriculum/core/css-fundamentals/",
+    "status": 200,
+    "title": "3. CSS fundamentals",
+    "retrievedAt": "2026-10-21T13:22:48.218Z",
+    "attribution": "MDN Web Docs"
+  },
+  {
+    "id": "mdn-design",
+    "source": "https://developer.mozilla.org/en-US/curriculum/core/design-for-developers/",
+    "resolvedSource": "https://developer.mozilla.org/en-US/curriculum/core/design-for-developers/",
+    "status": 200,
+    "title": "8. Design for developers",
+    "retrievedAt": "2026-10-21T13:22:48.301Z",
+    "attribution": "MDN Web Docs"
+  },
+  {
+    "id": "mdn-git",
+    "source": "https://developer.mozilla.org/en-US/curriculum/core/version-control/",
+    "resolvedSource": "https://developer.mozilla.org/en-US/curriculum/core/version-control/",
+    "status": 200,
+    "title": "9. Version control",
+    "retrievedAt": "2026-10-21T13:22:48.302Z",
+    "attribution": "MDN Web Docs"
+  },
+  {
+    "id": "mdn-html",
+    "source": "https://developer.mozilla.org/en-US/curriculum/core/semantic-html/",
+    "resolvedSource": "https://developer.mozilla.org/en-US/curriculum/core/semantic-html/",
+    "status": 200,
+    "title": "2. Semantic HTML",
+    "retrievedAt": "2026-10-21T13:22:48.219Z",
+    "attribution": "MDN Web Docs"
+  },
+  {
+    "id": "mdn-js",
+    "source": "https://developer.mozilla.org/en-US/curriculum/core/javascript-fundamentals/",
+    "resolvedSource": "https://developer.mozilla.org/en-US/curriculum/core/javascript-fundamentals/",
+    "status": 200,
+    "title": "6. JavaScript fundamentals",
+    "retrievedAt": "2026-10-21T13:22:48.259Z",
+    "attribution": "MDN Web Docs"
+  },
+  {
+    "id": "mdn-layout",
+    "source": "https://developer.mozilla.org/en-US/curriculum/core/css-layout/",
+    "resolvedSource": "https://developer.mozilla.org/en-US/curriculum/core/css-layout/",
+    "status": 200,
+    "title": "5. CSS layout",
+    "retrievedAt": "2026-10-21T13:22:48.213Z",
+    "attribution": "MDN Web Docs"
+  },
+  {
+    "id": "mdn-standards",
+    "source": "https://developer.mozilla.org/en-US/curriculum/core/web-standards/",
+    "resolvedSource": "https://developer.mozilla.org/en-US/curriculum/core/web-standards/",
+    "status": 200,
+    "title": "1. Web standards",
+    "retrievedAt": "2026-10-21T13:22:54.911Z",
+    "attribution": "MDN Web Docs"
+  },
+  {
+    "id": "ms-analyst",
+    "source": "https://learn.microsoft.com/en-us/training/career-paths/data-analyst",
+    "resolvedSource": "https://learn.microsoft.com/en-us/training/career-paths/data-analyst",
+    "status": 200,
+    "title": "Training for Data Analysts | Microsoft Learn",
+    "retrievedAt": "2026-10-21T13:22:52.157Z",
+    "attribution": "Microsoft Learn"
+  },
+  {
+    "id": "ms-analytics-start",
+    "source": "https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/",
+    "resolvedSource": "https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/",
+    "status": 200,
+    "title": "Get started with Microsoft data analytics - Training | Microsoft Learn",
+    "retrievedAt": "2026-10-21T13:22:52.024Z",
+    "attribution": "Microsoft Learn"
+  },
+  {
+    "id": "ms-powerbi-data",
+    "source": "https://learn.microsoft.com/en-us/training/paths/prepare-data-power-bi/",
+    "resolvedSource": "https://learn.microsoft.com/en-us/training/paths/prepare-data-power-bi/",
+    "status": 200,
+    "title": "Prepare data for analysis with Power BI - Training | Microsoft Learn",
+    "retrievedAt": "2026-10-21T13:22:54.879Z",
+    "attribution": "Microsoft Learn"
+  },
+  {
+    "id": "ms-powerbi-model",
+    "source": "https://learn.microsoft.com/en-us/training/paths/model-data-power-bi/",
+    "resolvedSource": "https://learn.microsoft.com/en-us/training/paths/model-data-power-bi/",
+    "status": 200,
+    "title": "Model Data with Power BI - Training | Microsoft Learn",
+    "retrievedAt": "2026-10-21T13:22:54.930Z",
+    "attribution": "Microsoft Learn"
+  },
+  {
+    "id": "postgres-tutorial",
+    "source": "https://www.postgresql.org/docs/current/tutorial.html",
+    "resolvedSource": "https://www.postgresql.org/docs/current/tutorial.html",
+    "status": 200,
+    "title": "PostgreSQL: Documentation: 18: Part I. Tutorial",
+    "retrievedAt": "2026-10-21T13:22:49.785Z",
+    "attribution": "PostgreSQL"
+  },
+  {
+    "id": "python-tutorial",
+    "source": "https://docs.python.org/3/tutorial/",
+    "resolvedSource": "https://docs.python.org/3/tutorial/",
+    "status": 200,
+    "title": "The Python Tutorial &#8212; Python 3.15.1 documentation",
+    "retrievedAt": "2026-10-21T13:22:48.626Z",
+    "attribution": "Python Software Foundation"
+  },
+  {
+    "id": "react-start",
+    "source": "https://react.dev/learn",
+    "resolvedSource": "https://react.dev/learn",
+    "status": 200,
+    "title": "Quick Start – React",
+    "retrievedAt": "2026-10-21T13:22:48.499Z",
+    "attribution": "React"
+  },
+  {
+    "id": "security-academy",
+    "source": "https://portswigger.net/web-security",
+    "resolvedSource": "https://portswigger.net/web-security",
+    "status": 200,
+    "title": "Web Security Academy: Free Online Training from PortSwigger",
+    "retrievedAt": "2026-10-21T13:22:50.460Z",
+    "attribution": "PortSwigger"
+  }
+]

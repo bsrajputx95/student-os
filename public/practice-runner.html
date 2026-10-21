@@ -1,0 +1,17 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>StudentOS isolated practice runner</title><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' blob:; worker-src blob:; connect-src 'none'; img-src 'none'; style-src 'none'; form-action 'none'; base-uri 'none'"></head><body><script>
+// This document is framed with sandbox=allow-scripts, without same-origin access.
+// It has no application data and cannot make network connections.
+let worker;
+addEventListener('message',event=>{
+  if(event.source!==parent||event.data?.type!=='studentos-practice-run')return;
+  worker?.terminate();
+  const source=`self.fetch=undefined;self.XMLHttpRequest=undefined;self.WebSocket=undefined;self.importScripts=undefined;const stable=v=>JSON.stringify(v&&typeof v==='object'?(Array.isArray(v)?v.map(x=>JSON.parse(stable(x))):Object.fromEntries(Object.keys(v).sort().map(k=>[k,JSON.parse(stable(v[k]))]))):v);self.onmessage=async({data})=>{try{const fn=new Function(data.code.replace(/\\bexport\\s+/g,'')+'\\n;return '+data.fn)();const results=[];for(const test of data.tests){const args=structuredClone(test.args),before=stable(args),actual=await fn(...args);const same=stable(actual)===stable(test.expected);const unordered=data.unordered&&Array.isArray(actual)&&Array.isArray(test.expected)&&stable([...actual].sort())===stable([...test.expected].sort());results.push({actual,expected:test.expected,unchanged:before===stable(args),passed:(same||unordered)&&(!data.immutable||before===stable(args))});}self.postMessage({results});}catch(error){self.postMessage({error:String(error.message).slice(0,500)});}};`;
+  const url=URL.createObjectURL(new Blob([source],{type:'text/javascript'}));
+  worker=new Worker(url);URL.revokeObjectURL(url);
+  const id=event.data.id;
+  worker.onmessage=message=>{const payload=message.data;worker.terminate();try{if(JSON.stringify(payload).length>100000)throw new Error('Practice output is too large.');parent.postMessage({type:'studentos-practice-result',id,...payload},'*');}catch(error){parent.postMessage({type:'studentos-practice-result',id,error:error.message},'*');}};
+  worker.onerror=()=>{worker.terminate();parent.postMessage({type:'studentos-practice-result',id,error:'The code could not run. Check the function and try again.'},'*');};
+  worker.postMessage(event.data.payload);
+});
+parent.postMessage({type:'studentos-practice-ready'},'*');
+</script></body></html>

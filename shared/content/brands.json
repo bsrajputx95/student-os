@@ -1,0 +1,605 @@
+[
+  {
+    "slug": "accenture",
+    "name": "Accenture",
+    "color": "A100FF",
+    "path": "/brands/accenture.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/accenture.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "adobe",
+    "name": "Adobe",
+    "color": "FF0000",
+    "path": "/brands/adobe.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/adobe.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "amazon",
+    "name": "Amazon",
+    "color": "FF9900",
+    "path": "/brands/amazon.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/amazon.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "amd",
+    "name": "AMD",
+    "color": "ED1C24",
+    "path": "/brands/amd.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/amd.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "americanexpress",
+    "name": "American Express",
+    "color": "2E77BC",
+    "path": "/brands/americanexpress.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/americanexpress.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "apple",
+    "name": "Apple",
+    "color": "111111",
+    "path": "/brands/apple.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/apple.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "atlassian",
+    "name": "Atlassian",
+    "color": "0052CC",
+    "path": "/brands/atlassian.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/atlassian.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "capgemini",
+    "name": "Capgemini",
+    "color": "0070AD",
+    "path": "/brands/capgemini.png",
+    "source": "https://www.capgemini.com/wp-content/uploads/2025/10/cropped-Capgemini_spade_32x32.png?w=180",
+    "collection": "Official company website icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "cisco",
+    "name": "Cisco",
+    "color": "1687B3",
+    "path": "/brands/cisco.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/cisco.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "cloudflare",
+    "name": "Cloudflare",
+    "color": "F38020",
+    "path": "/brands/cloudflare.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/cloudflare.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "cognizant",
+    "name": "Cognizant",
+    "color": "1A4CA1",
+    "path": "/brands/cognizant.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/cognizant.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "databricks",
+    "name": "Databricks",
+    "color": "FF3621",
+    "path": "/brands/databricks.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/databricks.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "dell",
+    "name": "Dell Technologies",
+    "color": "007DB8",
+    "path": "/brands/dell.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/dell.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "deloitte",
+    "name": "Deloitte",
+    "color": "86BC25",
+    "path": "/brands/deloitte.ico",
+    "source": "https://www.deloitte.com/content/dam/assets-shared/icons/global/apple-icon-114x114.png",
+    "collection": "Official company website icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "docker",
+    "name": "Docker",
+    "color": "2496ED",
+    "path": "/brands/docker.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/docker.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "elastic",
+    "name": "Elastic",
+    "color": "005571",
+    "path": "/brands/elastic.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/elastic.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "ey",
+    "name": "EY",
+    "color": "DAA900",
+    "path": "/brands/ey.ico",
+    "source": "https://www.ey.com/content/dam/ey-unified-site/icon/ey-favicon.jpg",
+    "collection": "Official company website icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "figma",
+    "name": "Figma",
+    "color": "F24E1E",
+    "path": "/brands/figma.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/figma.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "flipkart",
+    "name": "Flipkart",
+    "color": "2874F0",
+    "path": "/brands/flipkart.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/flipkart.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "freecodecamp",
+    "name": "freeCodeCamp",
+    "color": "0A0A23",
+    "path": "/brands/freecodecamp.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/freecodecamp.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "freshworks",
+    "name": "Freshworks",
+    "color": "008A80",
+    "path": "/brands/freshworks.png",
+    "source": "https://www.freshworks.com/favicons/apple-touch-icon.png",
+    "collection": "Official company website icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "github",
+    "name": "GitHub",
+    "color": "181717",
+    "path": "/brands/github.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/github.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "gitlab",
+    "name": "GitLab",
+    "color": "FC6D26",
+    "path": "/brands/gitlab.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/gitlab.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "goldmansachs",
+    "name": "Goldman Sachs",
+    "color": "7399C6",
+    "path": "/brands/goldmansachs.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/goldmansachs.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "google",
+    "name": "Google",
+    "color": "4285F4",
+    "path": "/brands/google.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/google.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "hcltech",
+    "name": "HCLTech",
+    "color": "006BB6",
+    "path": "/brands/hcltech.jpg",
+    "source": "https://rmkcdn.successfactors.com/147eb21f/9cddc83c-dccc-437a-91b7-0.jpg",
+    "collection": "Official company website icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "hp",
+    "name": "HP",
+    "color": "0096D6",
+    "path": "/brands/hp.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/hp.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "ibm",
+    "name": "IBM",
+    "color": "052FAD",
+    "path": "/brands/ibm.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/ibm.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "infosys",
+    "name": "Infosys",
+    "color": "007CC3",
+    "path": "/brands/infosys.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/infosys.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "intel",
+    "name": "Intel",
+    "color": "0071C5",
+    "path": "/brands/intel.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/intel.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "intuit",
+    "name": "Intuit",
+    "color": "236CFF",
+    "path": "/brands/intuit.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/intuit.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "jpmorganchase",
+    "name": "JPMorganChase",
+    "color": "111111",
+    "path": "/brands/jpmorganchase.png",
+    "source": "https://www.jpmorganchase.com/etc.clientlibs/cws/clientlibs/clientlib-base/resources/jpmc/images/jpmc-favicon-120.png",
+    "collection": "Official company website touch icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "kubernetes",
+    "name": "Kubernetes",
+    "color": "326CE5",
+    "path": "/brands/kubernetes.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/kubernetes.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "mdnwebdocs",
+    "name": "MDN Web Docs",
+    "color": "111111",
+    "path": "/brands/mdnwebdocs.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/mdnwebdocs.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "meesho",
+    "name": "Meesho",
+    "color": "CC1F88",
+    "path": "/brands/meesho.png",
+    "source": "https://www.meesho.io/img/meesho-logo.png",
+    "collection": "Official company website icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "meta",
+    "name": "Meta",
+    "color": "0866FF",
+    "path": "/brands/meta.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/meta.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "microsoft",
+    "name": "Microsoft",
+    "color": "F25022",
+    "path": "/brands/microsoft.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/microsoft.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "mongodb",
+    "name": "MongoDB",
+    "color": "47A248",
+    "path": "/brands/mongodb.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/mongodb.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "morganstanley",
+    "name": "Morgan Stanley",
+    "color": "111111",
+    "path": "/brands/morganstanley.png",
+    "source": "https://www.morganstanley.com/etc.clientlibs/msdotcom/clientlibs/site/resources/image/apple-touch-icon-144x144.png",
+    "collection": "Official company website icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "nvidia",
+    "name": "NVIDIA",
+    "color": "76B900",
+    "path": "/brands/nvidia.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/nvidia.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "oracle",
+    "name": "Oracle",
+    "color": "F80000",
+    "path": "/brands/oracle.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/oracle.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "paypal",
+    "name": "PayPal",
+    "color": "003087",
+    "path": "/brands/paypal.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/paypal.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "paytm",
+    "name": "Paytm",
+    "color": "20336B",
+    "path": "/brands/paytm.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/paytm.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "phonepe",
+    "name": "PhonePe",
+    "color": "5F259F",
+    "path": "/brands/phonepe.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/phonepe.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "postgresql",
+    "name": "PostgreSQL",
+    "color": "4169E1",
+    "path": "/brands/postgresql.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/postgresql.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "python",
+    "name": "Python Software Foundation",
+    "color": "3776AB",
+    "path": "/brands/python.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/python.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "qualcomm",
+    "name": "Qualcomm",
+    "color": "3253DC",
+    "path": "/brands/qualcomm.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/qualcomm.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "razorpay",
+    "name": "Razorpay",
+    "color": "0C2451",
+    "path": "/brands/razorpay.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/razorpay.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "react",
+    "name": "React",
+    "color": "087EA4",
+    "path": "/brands/react.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/react.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "redhat",
+    "name": "Red Hat",
+    "color": "EE0000",
+    "path": "/brands/redhat.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/redhat.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "salesforce",
+    "name": "Salesforce",
+    "color": "00A1E0",
+    "path": "/brands/salesforce.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/salesforce.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "samsung",
+    "name": "Samsung",
+    "color": "1428A0",
+    "path": "/brands/samsung.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/samsung.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "sap",
+    "name": "SAP",
+    "color": "0FAAFF",
+    "path": "/brands/sap.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/sap.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "servicenow",
+    "name": "ServiceNow",
+    "color": "238631",
+    "path": "/brands/servicenow.png",
+    "source": "https://www.servicenow.com/content/dam/servicenow-assets/public/en-us/images/apple-touch-icon/180x180.png",
+    "collection": "Official company website touch icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "snowflake",
+    "name": "Snowflake",
+    "color": "29B5E8",
+    "path": "/brands/snowflake.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/snowflake.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "spotify",
+    "name": "Spotify",
+    "color": "16833F",
+    "path": "/brands/spotify.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/spotify.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "stripe",
+    "name": "Stripe",
+    "color": "635BFF",
+    "path": "/brands/stripe.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/stripe.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "swiggy",
+    "name": "Swiggy",
+    "color": "FC8019",
+    "path": "/brands/swiggy.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/swiggy.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "tcs",
+    "name": "TCS",
+    "color": "EE3984",
+    "path": "/brands/tcs.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/tcs.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "techmahindra",
+    "name": "Tech Mahindra",
+    "color": "D71920",
+    "path": "/brands/techmahindra.png",
+    "source": "https://careers.techmahindra.com/Images/apple-touch-icon.png",
+    "collection": "Official company website icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "thoughtworks",
+    "name": "Thoughtworks",
+    "color": "CC1354",
+    "path": "/brands/thoughtworks.png",
+    "source": "https://www.thoughtworks.com/etc.clientlibs/thoughtworks/clientlibs/clientlib-site/resources/images/android-chrome-192x192.png",
+    "collection": "Official company website icon",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "uber",
+    "name": "Uber",
+    "color": "111111",
+    "path": "/brands/uber.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/uber.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "visa",
+    "name": "Visa",
+    "color": "1A1F71",
+    "path": "/brands/visa.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/visa.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "walmart",
+    "name": "Walmart Global Tech",
+    "color": "0071CE",
+    "path": "/brands/walmart.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/walmart.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "wipro",
+    "name": "Wipro",
+    "color": "341C53",
+    "path": "/brands/wipro.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/wipro.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "zoho",
+    "name": "Zoho",
+    "color": "E42527",
+    "path": "/brands/zoho.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/zoho.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "slug": "zomato",
+    "name": "Zomato",
+    "color": "E23744",
+    "path": "/brands/zomato.svg",
+    "source": "https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/zomato.svg",
+    "collection": "Simple Icons 11.15.0",
+    "retrievedAt": "2026-10-21"
+  }
+]

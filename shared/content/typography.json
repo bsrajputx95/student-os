@@ -1,0 +1,18 @@
+[
+  {
+    "family": "DM Sans",
+    "path": "/fonts/dm-sans-latin.woff2",
+    "source": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K4.woff2",
+    "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/dmsans/OFL.txt",
+    "bytes": 36932,
+    "retrievedAt": "2026-10-21"
+  },
+  {
+    "family": "Manrope",
+    "path": "/fonts/manrope-latin.woff2",
+    "source": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSg.woff2",
+    "license": "https://raw.githubusercontent.com/google/fonts/main/ofl/manrope/OFL.txt",
+    "bytes": 24836,
+    "retrievedAt": "2026-10-21"
+  }
+]
