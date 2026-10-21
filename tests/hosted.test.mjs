@@ -11,6 +11,7 @@ import { createSnapshotStore } from '../server/hosted-storage.mjs';
 import { readJsonBody } from '../server/http-body.mjs';
 import { createFiles } from '../server/files.mjs';
 import { loadConfig } from '../server/config.mjs';
+import { BlobPreconditionFailedError } from '@vercel/blob';
 process.env.STUDENTOS_SKIP_ENV = '1';
 const {
   createApplication
@@ -69,9 +70,7 @@ function memoryStore() {
     },
     async commit(next, previous) {
       if (previous !== etag) {
-        const e = new Error('conflict');
-        e.name = 'BlobPreconditionFailedError';
-        throw e;
+        throw new BlobPreconditionFailedError();
       }
       bytes = next;
       etag = String(Number(etag) + 1);
@@ -307,4 +306,49 @@ test('presentation hosting keeps production security and does not enable samples
     APP_ORIGIN: environment.APP_ORIGIN
   }).presentation, false);
   assert.equal(config.allowedOrigins.has('https://attacker.example'), false);
+});
+test('public catalog loading is read-only and does not contend with sign-in writes', async () => {
+  const store = memoryStore();
+  let writes = 0;
+  store.commit = async () => {
+    writes++;
+  };
+  const handler = createHostedHandler({
+      store,
+      createApp: createApplication,
+      env: environment
+    }),
+    res = new BufferedResponse();
+  await handler(request('/api/catalog'), res);
+  assert.equal(res.statusCode, 200);
+  assert.equal(reply(res).courses.length, 12);
+  assert.equal(writes, 0);
+});
+test('an idempotent read retries the actual Blob SDK precondition error before responding', async () => {
+  const store = memoryStore(),
+    commit = store.commit;
+  let writes = 0;
+  store.commit = async (...args) => {
+    if (++writes === 1) throw new BlobPreconditionFailedError();
+    return commit(...args);
+  };
+  const createApp = options => {
+    const app = createApplication(options),
+      handle = app.handleRequest;
+    app.handleRequest = async (req, res) => {
+      app.db.prepare('INSERT INTO rate_limits VALUES(?,?,?)').run('read-fixture', Date.now(), 1);
+      await handle(req, res);
+    };
+    return app;
+  };
+  const handler = createHostedHandler({
+      store,
+      createApp,
+      env: environment
+    }),
+    res = new BufferedResponse();
+  await handler(request('/api/state'), res);
+  assert.equal(res.statusCode, 200);
+  assert.equal(writes, 2);
+  assert.equal(reply(res).sessionRequired, true);
 });

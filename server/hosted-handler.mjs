@@ -3,6 +3,7 @@ import { mkdtempSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve, dirname, basename } from 'node:path';
 import { gzipSync, gunzipSync } from 'node:zlib';
+import { BlobPreconditionFailedError } from '@vercel/blob';
 
 // The response stays buffered until durable storage accepts the transaction.
 // Cookies/success messages must not escape before a snapshot has been saved.
@@ -53,7 +54,7 @@ export function createHostedHandler({
 }) {
   let queue = Promise.resolve(),
     lastMaintenance = 0;
-  async function perform(req, res) {
+  async function perform(req, res, attempt = 0) {
     let directory, app;
     try {
       const saved = await store.current();
@@ -73,20 +74,26 @@ export function createHostedHandler({
           STUDENTOS_SERVERLESS: '1'
         }
       });
-      if (Date.now() - lastMaintenance > 30000) {
+      const before = app.db.prepare('SELECT total_changes() AS n').get().n;
+      if (Date.now() - lastMaintenance > 30000 && (req.method === 'POST' || req.url.startsWith('/api/state') || req.url.startsWith('/api/staff/'))) {
         await app.maintenance();
         lastMaintenance = Date.now();
       }
       const buffered = new BufferedResponse();
       await app.handleRequest(req, buffered);
       if (!buffered.writableEnded) throw new Error('The request did not finish.');
-      const changed = app.db.prepare('SELECT total_changes() AS n').get().n > 0;
+      const changed = app.db.prepare('SELECT total_changes() AS n').get().n > before;
       app.db.close();
       app = null;
       if (changed) await store.commit(gzipSync(readFileSync(databasePath)), saved.etag);
       buffered.sendTo(res);
     } catch (error) {
-      const conflict = error.name === 'BlobPreconditionFailedError';
+      const conflict = error instanceof BlobPreconditionFailedError || error.name === 'BlobPreconditionFailedError';
+      if (conflict && req.method === 'GET' && attempt < 2) {
+        app?.db.close();
+        app = null;
+        return perform(req, res, attempt + 1);
+      }
       console.error(JSON.stringify({
         event: 'hosted.request.error',
         kind: conflict ? 'conflict' : 'storage',
