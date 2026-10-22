@@ -25,6 +25,11 @@ export function createJournalStore({
     const found = await read(headPath, {
       access: 'private',
       useCache: false,
+      // JSON response compression can produce a weak/variant HTTP ETag, which
+      // cannot be used as the storage object's conditional-write version.
+      headers: {
+        'Accept-Encoding': 'identity'
+      },
       ...(cached ? {
         ifNoneMatch: cached.etag
       } : {})

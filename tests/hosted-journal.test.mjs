@@ -167,6 +167,37 @@ test('journal upgrades the live checkpoint, validates objects and publishes smal
   session.close();
   db.close();
 });
+test('journal head reads request the uncompressed representation for a reusable write ETag', async () => {
+  const cloud = storage();
+  const legacy = {
+    current: async () => ({
+      bytes: gzipSync(Buffer.from('campus')),
+      etag: 'legacy'
+    })
+  };
+  const read = async (key, options) => {
+    const found = await cloud.read(key, options);
+    if (found && key.endsWith('/head.json') && options.headers?.['Accept-Encoding'] !== 'identity') found.blob.etag = 'W/"compressed-variant"';
+    return found;
+  };
+  const a = createJournalStore({
+    ...cloud,
+    read,
+    legacy
+  });
+  await a.current();
+  const cold = createJournalStore({
+    ...cloud,
+    read,
+    legacy
+  });
+  const saved = await cold.current();
+  assert.doesNotMatch(saved.etag, /^W\//);
+  const changed = await cold.commit(Buffer.from('next change'), saved, () => {
+    throw new Error('No compaction expected');
+  });
+  assert.equal(changed.head.entries.length, 1);
+});
 test('registration survives cold replay and a warm read uploads nothing', async () => {
   const f = fixture(),
     handler = f.handler(),
