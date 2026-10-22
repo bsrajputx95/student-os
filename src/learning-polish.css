@@ -14,7 +14,7 @@
 .cover-arrow{height:29px;width:29px;display:grid;place-items:center;border:1px solid #ffffff40;border-radius:50%;color:var(--cover-accent);background:#ffffff0a}
 .course-cover:hover .cover-photograph,.learning-preview-button:hover .cover-photograph{transform:scale(1.035)}
 .course-card .course-cover{height:auto;min-height:238px;border:0;position:relative;padding:0;text-align:left}
-.course-card .course-cover>.badge{position:absolute;right:16px;top:46px;background:#ffffff17;border:1px solid #ffffff35;color:#fff;backdrop-filter:blur(8px)}
+.course-card .course-cover>.badge{position:absolute;right:16px;top:46px;left:auto;bottom:auto;width:max-content;height:auto;padding:5px 9px;font-size:10px;background:#ffffff17;border:1px solid #ffffff35;color:#fff;backdrop-filter:blur(8px)}
 .course-grid{gap:23px}.course-card{overflow:hidden;border-radius:16px;box-shadow:0 4px 14px #20203a05}.course-card:hover{border-color:#cfc3f5;box-shadow:0 8px 25px #33275910}
 .course-card-body{padding:20px 21px 19px}.course-card-body h3{font-size:17px;line-height:1.45}.course-card-description{font-size:12px!important;line-height:1.75!important;min-height:42px}
 .course-category{font-weight:600;font-size:10px}.course-category>span:first-child{color:#6342cb}.course-card-body>.progress-track{height:5px;margin-top:18px}.course-card-bottom{padding-top:15px}

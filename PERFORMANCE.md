@@ -37,3 +37,9 @@ Actual student dashboard, mobile practice, faculty overview and mobile/desktop r
 ## Journal response validators
 
 The journal head requests `Accept-Encoding: identity` when reading private Blob storage. This keeps the response ETag usable for conditional writes even when the head grows large enough for HTTP compression. A regression test covers a compressed response returning a weak variant ETag. A hosted login, bookmark save, subsequent read and restoration were verified after the correction.
+
+## Expanded roster · 22 October 2026
+
+The campus now has 800 students and 100 staff. Social follower/post/unread counts are computed in single passes instead of repeatedly scanning each collection for every person. The disposable 900-person fixture served 50 state requests at concurrency 5 with no failures: p50 106 ms, p95 111 ms, max 116 ms; the average decoded response was 763,237 bytes. Catalog gzip and conditional 304 passed. These are local measurements; they do not establish hosted capacity.
+
+The main browser bundle is approximately 401 KB / 126 KB gzip. New duotone icons are a 17 KB locally served SVG sprite rather than a runtime icon-package import. Six responsive course photographs total approximately 631 KB on disk; browsers select the appropriate image size and load cards lazily. Current verification covers 150 passing tests and 182 source modules.
