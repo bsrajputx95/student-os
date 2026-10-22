@@ -45,7 +45,7 @@ export default function Learn({
     }, {
       id: 'assignments',
       label: 'Assignments',
-      count: state.assignments.filter(a => a.status !== 'submitted').length
+      count: state.assignments.filter(a => ['pending', 'revision requested'].includes(a.status)).length
     }, {
       id: 'certificates',
       label: 'Certificates'
