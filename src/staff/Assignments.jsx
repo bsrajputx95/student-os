@@ -24,7 +24,7 @@ export default function Assignments() {
     ...d,
     item: i
   })));
-  return <><div className="staff-page-head"><div><span className="staff-eyebrow">MEANINGFUL WORK. USEFUL FEEDBACK.</span><h1>Set the challenge. See them grow.</h1><p>Assignments, quizzes, and projects — from the first instruction to the next improvement.</p></div>{can(state.profile, 'content.publish') && <Button icon="Plus" onClick={() => setDialog({
+  return <><div className="staff-page-head"><div><span className="staff-eyebrow">COURSEWORK</span><h1>Assignments & reviews</h1><p>Publish assignments, quizzes and projects, then review student submissions.</p></div>{can(state.profile, 'content.publish') && <Button icon="Plus" onClick={() => setDialog({
         type: 'compose',
         kind: 'Assignment'
       })}>Create new work</Button>}</div><div className="staff-assignment-metrics">{[['Published', work.filter(i => i.status === 'published').length, 'Send'], ['Ready for review', data.summary.toReview, 'NotebookPen'], ['Reviewed submissions', work.reduce((n, i) => n + i.reviewed, 0), 'CheckCheck'], ['Student deadlines missed', data.summary.overdue, 'Clock3']].map(([label, n, icon]) => <section className="card" key={label}><Icon name={icon} size={18} /><strong>{n}</strong><small>{label}</small></section>)}</div><Tabs items={[{

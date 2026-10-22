@@ -1,11 +1,11 @@
-// Run through the Codex CUA runtime with an authenticated sample student tab.
+// Browser smoke checks for an authenticated student tab.
 // All interaction stays on the documented tab API. No direct API/state access.
 const expect = (value, message) => {
   if (!value) throw new Error(message);
 };
 export async function studentSmoke(tab, origin = 'http://127.0.0.1:5180') {
   const results = [];
-  const pages = [['/career?tab=resume', 'A resume you can stand behind.'], ['/practice?tab=judged', 'Trusted coding practice'], ['/practice?tab=interview', 'Practise a real conversation.'], ['/practice?tab=challenges', 'One campus. A daily challenge.'], ['/learn?tab=certificates', 'Credential wallet'], ['/learn?tab=videos', 'See what you’ll learn.'], ['/learn?tab=resources', 'Learn from the people who build it.'], ['/community', 'Built together. Better together.'], ['/help', 'Help, without the maze.']];
+  const pages = [['/career?tab=resume', 'A resume you can stand behind.'], ['/practice?tab=judged', 'Trusted coding practice'], ['/practice?tab=interview', 'Practise a real conversation.'], ['/practice?tab=challenges', 'One campus. A daily challenge.'], ['/learn?tab=certificates', 'Credential wallet'], ['/learn?tab=videos', 'See what you’ll learn.'], ['/learn?tab=resources', 'Learn from the people who build it.'], ['/community', 'Community'], ['/help', 'Help & support']];
   for (const [route, title] of pages) {
     await tab.goto(origin + route);
     await tab.playwright.getByRole('heading', {

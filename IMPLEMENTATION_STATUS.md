@@ -36,7 +36,7 @@ Interface verification on 21 October: **163 JavaScript modules, zero scope/synta
 - Local disposable 500-person fixture: **50 state requests, concurrency 5, zero failures, p50 228 ms, p95 262 ms, maximum 269 ms**. Catalog gzip and conditional 304 passed. Average decoded state JSON was 851,329 bytes; this is not compressed transfer size. This small local check does not certify production capacity.
 - Backup/restore drill: `data/backups/studentos-2026-10-21T08-53-22-357Z.sqlite` restored to `.runtime/restore-drill-20261021T0853/studentos.sqlite`; integrity OK, 515 profiles, 500 HKBK members, 400 populated academic eligibility records and 6 migrations. The sample database had zero uploaded files; a separate fixture verifies attachment checksum custody and rejects tampered bytes.
 
-Local proof artifacts and logs are intentionally ignored by Git. Browser checks are maintained in `scripts/cua-smoke.mjs` and run through the Codex CUA runtime; they are not an automated hosted CI browser job. CI configuration exists; a remote CI run has not been claimed. Mobile and keyboard smoke checks are not a WCAG certification. No dependency vulnerability conclusion was drawn because the package registry was unreachable during optional tooling installation.
+Local proof artifacts and logs are intentionally ignored by Git. Browser checks are maintained in `scripts/cua-smoke.mjs` and run through the documented browser tab API; they are not an automated hosted CI browser job. CI configuration exists; a remote CI run has not been claimed. Mobile and keyboard smoke checks are not a WCAG certification. No dependency vulnerability conclusion was drawn because the package registry was unreachable during optional tooling installation.
 
 ## Current interface and practice update
 

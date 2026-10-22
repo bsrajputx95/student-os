@@ -16,7 +16,7 @@ export default function Outreach() {
   const [tab, setTab] = useState('all');
   const kinds = ['Announcement', 'Message', 'Feedback', 'Event'];
   const items = data.items.filter(i => kinds.includes(i.kind) && (tab === 'all' || i.kind === tab));
-  return <><div className="staff-page-head"><div><span className="staff-eyebrow">THE RIGHT NUDGE, AT THE RIGHT TIME</span><h1>Keep the campus in the loop.</h1><p>Share an announcement. Suggest an improvement. Invite someone to try something new.</p></div>{publish && <Button icon="Send" onClick={() => setDialog({
+  return <><div className="staff-page-head"><div><span className="staff-eyebrow">COLLEGE COMMUNICATION</span><h1>Announcements & outreach</h1><p>Share an announcement. Suggest an improvement. Invite someone to try something new.</p></div>{publish && <Button icon="Send" onClick={() => setDialog({
         type: 'compose',
         kind: 'Message'
       })}>Create an update</Button>}</div><Interventions />{publish && <div className="staff-outreach-quick">{[['Announcement', 'Megaphone', 'A college announcement', 'Important updates in the student’s College feed.'], ['Feedback', 'Lightbulb', 'A personal improvement plan', 'Specific, encouraging guidance with room to reply.'], ['Event', 'CalendarDays', 'A hackathon or event', 'A useful experience, shared with the right students.'], ['Message', 'MessageCircle', 'A direct check-in', 'One person, one cohort, or your whole college.']].map(([kind, icon, title, body]) => <button className="card" key={kind} onClick={() => setDialog({

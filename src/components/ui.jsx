@@ -288,7 +288,7 @@ export function TaskRow({
       }
       if (task.status !== 'completed') act('task.complete', {
         id: task.id
-      }, `A little progress! +${task.xp} XP`).catch(() => {});
+      }, `Activity recorded. +${task.xp} XP`).catch(() => {});
     }}>{task.status === 'completed' && <Icon name="Check" size={13} />}</button><button className="task-main" onClick={() => onOpen?.(task)}><strong>{task.title}</strong><span><Badge color={task.category === 'DSA' ? 'purple' : task.category === 'Backend' ? 'peach' : task.category === 'Communication' ? 'mint' : 'blue'}>{task.category}</Badge><span><Icon name="Clock3" size={12} />{task.minutes} min</span></span></button><span className="task-xp">+{task.xp} XP</span><IconButton name="ArrowUpRight" label={`Open ${task.title}`} onClick={() => onOpen?.(task)} /></div>;
 }
 export function taskDestination(task, setModal) {

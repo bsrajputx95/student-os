@@ -18,7 +18,7 @@ export default function Help() {
   useEffect(() => {
     load();
   }, []);
-  return <><PageHead title="Help, without the maze." description="Find a workflow or ask your college support team." /><section className="card form-stack"><label>Search product help<input value={query} onChange={e => setQuery(e.target.value)} placeholder="Assignments, scores, AI…" /></label>{help.filter(h => h.join(' ').toLowerCase().includes(query.toLowerCase())).map(([title, text, route]) => <details key={title}><summary>{title}</summary><p>{text}</p><Button variant="ghost" onClick={() => navigate(state.profile.role === 'student' ? route : '/staff/overview')}>Open workspace</Button></details>)}</section><section className="card form-stack"><h2>Contact college support</h2><form className="form-stack" onSubmit={async e => {
+  return <><PageHead title="Help & support" description="Find a workflow or ask your college support team." /><section className="card form-stack"><label>Search product help<input value={query} onChange={e => setQuery(e.target.value)} placeholder="Assignments, scores, AI…" /></label>{help.filter(h => h.join(' ').toLowerCase().includes(query.toLowerCase())).map(([title, text, route]) => <details key={title}><summary>{title}</summary><p>{text}</p><Button variant="ghost" onClick={() => navigate(state.profile.role === 'student' ? route : '/staff/overview')}>Open workspace</Button></details>)}</section><section className="card form-stack"><h2>Contact college support</h2><form className="form-stack" onSubmit={async e => {
         e.preventDefault();
         const ticketForm = e.currentTarget;
         try {

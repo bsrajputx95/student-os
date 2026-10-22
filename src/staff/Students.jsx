@@ -78,7 +78,7 @@ export default function Students() {
       setSaving(false);
     }
   }
-  return <><div className="staff-page-head"><div><span className="staff-eyebrow">KNOW THE PERSON BEHIND THE PROGRESS</span><h1>Every student. A clear next step.</h1><p>One college roster. All years. A useful view of what each student needs.</p></div><Button variant="secondary" icon="Download" onClick={() => exportStudents(students)}>Export this view</Button></div><div className="staff-roster-summary">{[[data.students.length, 'in the college'], [data.students.filter(s => s.readiness >= 75).length, 'ready to explore'], [data.students.filter(s => s.needsSupport).length, 'could use a check-in']].map(([n, label]) => <span key={label}><strong>{n}</strong>{label}</span>)}</div><div className="staff-cohort-pills"><span><Icon name="Users" size={15} />Saved cohorts</span>{data.cohorts.map(c => <button key={c.id} onClick={() => setFilters({
+  return <><div className="staff-page-head"><div><span className="staff-eyebrow">STUDENT DIRECTORY</span><h1>Student roster</h1><p>Filter by year, department, preparation track and support needs.</p></div><Button variant="secondary" icon="Download" onClick={() => exportStudents(students)}>Export this view</Button></div><div className="staff-roster-summary">{[[data.students.length, 'in the college'], [data.students.filter(s => s.readiness >= 75).length, 'ready to explore'], [data.students.filter(s => s.needsSupport).length, 'could use a check-in']].map(([n, label]) => <span key={label}><strong>{n}</strong>{label}</span>)}</div><div className="staff-cohort-pills"><span><Icon name="Users" size={15} />Saved cohorts</span>{data.cohorts.map(c => <button key={c.id} onClick={() => setFilters({
         query: '',
         year: '',
         department: '',

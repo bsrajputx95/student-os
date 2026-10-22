@@ -145,7 +145,7 @@ function Workspace() {
       <div className="nav-label">YOUR WORKSPACE</div>
       <nav aria-label="Main navigation">{navigation.map((item, i) => <React.Fragment key={item.path}>{i === 4 && <div className="nav-divider" />}<button className={`nav-item ${path === item.path || item.path === '/overview' && path === '/' ? 'active' : ''}`} aria-current={path === item.path || item.path === "/overview" && path === "/" ? "page" : undefined} onClick={() => navigate(item.path)}><Icon name={item.icon} size={19} /><span>{item.label}</span>{item.path === '/journey' && <span className="nav-new">✦</span>}{item.path === '/community' && <span className="nav-dot" />}</button></React.Fragment>)}</nav>
       <div className="sidebar-bottom"><button className="nav-item" onClick={() => navigate('/help')}><Icon name="CircleHelp" size={19} />Help & support</button><button className="nav-item" onClick={() => navigate('/staff')}><Icon name="GraduationCap" size={19} />Teacher & placement<Icon name="ArrowUpRight" size={14} /></button><button className={`nav-item ${path === '/progress' ? 'active' : ''}`} onClick={() => navigate('/progress')}><Icon name="ChartNoAxesCombined" size={19} />My progress<Icon name="ArrowUpRight" size={14} /></button>
-        <div className="sidebar-journey"><span className="tiny-spark">✦</span><span className="eyebrow">ONE STEP AT A TIME</span><strong>Your next chapter.<br />In the making.</strong><div><span>Day {state.journey.day}</span><span>{state.journey.totalDays} days</span></div><div className="sidebar-progress"><i style={{
+        <div className="sidebar-journey"><span className="tiny-spark">✦</span><span className="eyebrow">PREPARATION PLAN</span><strong>Your preparation<br />at a glance.</strong><div><span>Day {state.journey.day}</span><span>{state.journey.totalDays} days</span></div><div className="sidebar-progress"><i style={{
               width: `${state.journey.day / state.journey.totalDays * 100}%`
             }} /></div><button onClick={() => setModal({
             type: 'onboarding'
@@ -166,7 +166,7 @@ function Workspace() {
             type: 'profile',
             id: 'me'
           })} /></div></header>
-      <main id="main-content" tabIndex={-1} className="main-content" key={path}><Suspense fallback={<p role="status">Opening this workspace…</p>}>{page}</Suspense><footer className="workspace-footer"><span>A little progress. A bigger future.</span><span>Made for your next chapter <Icon name="Sparkles" size={12} /></span></footer></main>
+      <main id="main-content" tabIndex={-1} className="main-content" key={path}><Suspense fallback={<p role="status">Opening this workspace…</p>}>{page}</Suspense><footer className="workspace-footer"><span>StudentOS · Student workspace</span><span>Learning · Practice · Career</span></footer></main>
     </div>
     <PageMotion route={route} /><ModalHost /><Quid />
   </div>;

@@ -241,7 +241,7 @@ function Onboarding({
       icon: 'Code2'
     }))
   }, {
-    title: 'What would a good next chapter look like?',
+    title: 'What is your main preparation goal?',
     subtitle: 'A goal gives your plan a little direction.',
     options: ['An internship', 'A great first job', 'A strong project portfolio', 'Explore my options'].map(value => ({
       label: value,
@@ -298,7 +298,7 @@ function Onboarding({
     }))
   }, {
     title: 'Where would a little support help most?',
-    subtitle: 'One last question. Then your next chapter is ready.',
+    subtitle: 'Choose how you want to begin your preparation plan.',
     options: ['Staying consistent', 'Knowing what to do next', 'Interview confidence', 'Finding enough time'].map(value => ({
       label: value,
       value,
@@ -324,7 +324,7 @@ function Onboarding({
       setBusy(false);
     }
   }
-  return <Modal wide title="Let's make this journey yours." subtitle="A few thoughtful questions. A path with your name on it." onClose={close} className="onboarding-modal"><div className="onboarding-layout"><aside><span className="onboarding-flower">✺</span><div><span className="eyebrow">YOUR NEXT CHAPTER</span><h2>Different dreams.<br />Different starting points.<br /><i>Your own way forward.</i></h2><p>You don't have to have it all figured out. We will start where you are.</p></div><JourneyArt /><small>About 3 minutes. You can change your answers later.</small></aside><section><div className="onboarding-step"><span>QUESTION {String(step + 1).padStart(2, '0')} OF 12</span><strong>{Math.round((step + 1) / 12 * 100)}%</strong></div><Progress value={(step + 1) / 12 * 100} /><h2>{q.title}</h2><p>{q.subtitle}</p><div className="onboarding-options">{q.options.map(o => <button key={o.label} className={answers[step] === o.value ? 'selected' : ''} onClick={() => setAnswers(answers.map((a, i) => i === step ? o.value : a))}><span><Icon name={o.icon} size={20} /></span><div><strong>{o.label}</strong>{o.detail && <small>{o.detail}</small>}</div><i>{answers[step] === o.value && <Icon name="Check" size={13} />}</i></button>)}</div><footer><Button variant="ghost" disabled={step === 0} onClick={() => setStep(step - 1)}><Icon name="ArrowLeft" size={14} />Back</Button>{step === 11 ? <Button icon="Sparkles" onClick={finish} disabled={!answers[step] || busy}>{busy ? 'Making it yours…' : 'Make my plan'}</Button> : <Button icon="ArrowRight" onClick={() => setStep(step + 1)} disabled={!answers[step]}>Continue</Button>}</footer></section></div></Modal>;
+  return <Modal wide title="Set up your preparation plan" subtitle="Choose your interests, current experience and study schedule." onClose={close} className="onboarding-modal"><div className="onboarding-layout"><aside><span className="onboarding-flower">✺</span><div><span className="eyebrow">STUDENT SETUP</span><h2>Choose your track.<br />Set your schedule.<br /><i>Build your plan.</i></h2><p>Your answers set the starting level and recommended activities. You can change them later.</p></div><JourneyArt /><small>About 3 minutes. You can change your answers later.</small></aside><section><div className="onboarding-step"><span>QUESTION {String(step + 1).padStart(2, '0')} OF 12</span><strong>{Math.round((step + 1) / 12 * 100)}%</strong></div><Progress value={(step + 1) / 12 * 100} /><h2>{q.title}</h2><p>{q.subtitle}</p><div className="onboarding-options">{q.options.map(o => <button key={o.label} className={answers[step] === o.value ? 'selected' : ''} onClick={() => setAnswers(answers.map((a, i) => i === step ? o.value : a))}><span><Icon name={o.icon} size={20} /></span><div><strong>{o.label}</strong>{o.detail && <small>{o.detail}</small>}</div><i>{answers[step] === o.value && <Icon name="Check" size={13} />}</i></button>)}</div><footer><Button variant="ghost" disabled={step === 0} onClick={() => setStep(step - 1)}><Icon name="ArrowLeft" size={14} />Back</Button>{step === 11 ? <Button icon="Sparkles" onClick={finish} disabled={!answers[step] || busy}>{busy ? 'Creating your plan…' : 'Make my plan'}</Button> : <Button icon="ArrowRight" onClick={() => setStep(step + 1)} disabled={!answers[step]}>Continue</Button>}</footer></section></div></Modal>;
 }
 function Search({
   close
@@ -356,7 +356,7 @@ function Rest({
     [reason, setReason] = useState('Exam / recovery break'),
     [error, setError] = useState(''),
     [busy, setBusy] = useState(false);
-  return <Modal title="A little room to breathe." subtitle="A break belongs in your plan, too." onClose={close}><form className="form-stack" onSubmit={async e => {
+  return <Modal title="Schedule a study break" subtitle="Choose the dates to keep free in your preparation plan." onClose={close}><form className="form-stack" onSubmit={async e => {
       e.preventDefault();
       setBusy(true);
       try {

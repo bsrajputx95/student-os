@@ -39,7 +39,7 @@ function LegacyCommunity() {
       setBusy(false);
     }
   }
-  return <><PageHead eyebrow="LEARN IN PUBLIC. GROW TOGETHER." title="Your people. Your progress." description="Share a build, ask a question, and keep up with your community."><Button variant="secondary" icon="MessageCircle" onClick={() => navigate('/messages')}>Messages & global chat</Button></PageHead><div className="social-layout"><aside className="social-sidebar"><section className="card community-profile"><div className="profile-cover"><span>✧</span><span>✺</span></div><Avatar person="me" size="lg" /><PersonName person="me" /><p>{state.profile.bio || 'Learning, building, and finding my direction.'}</p>{state.profile.isDemo && <Badge color="peach">Demo profile & social activity</Badge>}<div className="social-counts"><button onClick={() => setModal({
+  return <><PageHead eyebrow="COLLEGE COMMUNITY" title="Community" description="Share project updates, ask questions and follow college announcements."><Button variant="secondary" icon="MessageCircle" onClick={() => navigate('/messages')}>Messages & global chat</Button></PageHead><div className="social-layout"><aside className="social-sidebar"><section className="card community-profile"><div className="profile-cover"><span>✧</span><span>✺</span></div><Avatar person="me" size="lg" /><PersonName person="me" /><p>{state.profile.bio || 'Learning, building, and finding my direction.'}</p>{state.profile.isDemo && <Badge color="peach">Demo profile & social activity</Badge>}<div className="social-counts"><button onClick={() => setModal({
               type: 'connections',
               mode: 'followers'
             })}><strong>{state.profile.followers || 0}</strong><span>followers</span></button><button onClick={() => setModal({
