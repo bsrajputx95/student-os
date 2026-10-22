@@ -69,12 +69,17 @@ export function createCommunity({
         post: c.posts.find(p => p.id === r.postId)
       })) : [],
       communityVersion: c.version,
-      communityPeople: roster,
+      communityPeople: roster.map(person => ({
+        ...person,
+        followers: c.follows.filter(f => f.to === person.id).length,
+        followingCount: c.follows.filter(f => f.from === person.id).length,
+        postCount: c.posts.filter(p => p.author === person.id && visible(p)).length
+      })),
       communityPosts: c.posts.filter(visible).filter(p => !(c.mutes || []).some(b => b.from === me && b.to === p.author)).toSorted((a, b) => a.time.localeCompare(b.time) || a.id.localeCompare(b.id)).slice(-(options.limit || c.posts.length || 1)).map(p => ({
         ...p,
         comments: p.comments.filter(visible)
       })),
-      communityFollows: c.follows,
+      communityFollows: c.follows.filter(f => f.from === me || f.to === me),
       communityMessages: c.messages.filter(m => visible(m) && (m.to === 'global' || m.author === me || m.to === me)),
       collegeEvents: c.events.filter(visible),
       communityStats: {

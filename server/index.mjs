@@ -46,7 +46,7 @@ export function createApplication(options = {}) {
   mkdirSync(config.dataDir, {
     recursive: true
   });
-  const db = new DatabaseSync(options.databasePath || (process.env.STUDENTOS_TEST_DB === 'memory' ? ':memory:' : resolve(config.dataDir, 'studentos.sqlite')));
+  const db = options.db || new DatabaseSync(options.databasePath || (process.env.STUDENTOS_TEST_DB === 'memory' ? ':memory:' : resolve(config.dataDir, 'studentos.sqlite')));
   db.exec('PRAGMA journal_mode=WAL; CREATE TABLE IF NOT EXISTS profiles(id TEXT PRIMARY KEY,handle TEXT UNIQUE NOT NULL,document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS sessions(token TEXT PRIMARY KEY,profile_id TEXT NOT NULL);');
   migrateDatabase(db);
   for (const row of db.prepare('SELECT p.document FROM profiles p LEFT JOIN public_members m ON m.profile_id=p.id WHERE m.profile_id IS NULL').all()) indexMember(db, JSON.parse(row.document).profile);
@@ -115,9 +115,12 @@ export function createApplication(options = {}) {
     };
     const shared = {
       ...community.snapshot(state, {
-        limit: 100
+        limit: 25
       }),
-      accountProtected: auth.protectedProfile(state.profile.id)
+      accountProtected: auth.protectedProfile(state.profile.id),
+      catalogUpdates: {
+        jobs: db.prepare('SELECT document FROM opportunities ORDER BY checked_at DESC').all().map(row => JSON.parse(row.document))
+      }
     };
     if (isStaff(state.profile)) return {
       ...state,
@@ -317,7 +320,7 @@ export function createApplication(options = {}) {
         const content = JSON.stringify(catalog),
           etag = '"' + createHash('sha256').update(content).digest('hex').slice(0, 24) + '"';
         res.setHeader('ETag', etag);
-        res.setHeader('Cache-Control', 'private, max-age=0, must-revalidate');
+        res.setHeader('Cache-Control', 'public, max-age=60, s-maxage=300, stale-while-revalidate=60');
         res.setHeader('Vary', 'Accept-Encoding');
         if (req.headers['if-none-match'] === etag) {
           res.writeHead(304);

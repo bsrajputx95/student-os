@@ -1,4 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, useCallback, useRef } from 'react';
+import catalogUrl from 'virtual:studentos-catalog-url';
+import { mergePublicCatalog } from '../../shared/public-catalog.js';
 const Store = import.meta.hot?.data.context || createContext(null);
 if (import.meta.hot) import.meta.hot.data.context = Store;
 export function navigate(path) {
@@ -30,6 +32,8 @@ export function Provider({
     [modal, setModal] = useState(null),
     [assistant, setAssistant] = useState(null);
   const catalog = useRef(null),
+    catalogRequest = useRef(null),
+    stateRequest = useRef(null),
     epoch = useRef(0);
   const toast = useCallback((message, tone = 'success') => {
     const id = Date.now() + Math.random();
@@ -41,23 +45,35 @@ export function Provider({
     setTimeout(() => setToasts(t => t.filter(x => x.id !== id)), 4200);
   }, []);
   const loadCatalog = useCallback(async () => {
-    if (!catalog.current) {
-      const res = await fetch('/api/catalog');
+    if (catalog.current) return catalog.current;
+    if (!catalogRequest.current) catalogRequest.current = fetch(catalogUrl).then(async res => {
       if (!res.ok) throw new Error('The content library could not load.');
-      catalog.current = await res.json();
-    }
-    return catalog.current;
+      return catalog.current = await res.json();
+    }).finally(() => {
+      catalogRequest.current = null;
+    });
+    return catalogRequest.current;
   }, []);
   const refresh = useCallback(async () => {
     const ticket = epoch.current;
     try {
-      const [res, content] = await Promise.all([fetch('/api/state'), loadCatalog()]);
-      if (!res.ok) throw new Error('The workspace could not be loaded.');
-      const next = await res.json();
+      if (!stateRequest.current || stateRequest.current.ticket !== ticket) {
+        const entry = {
+          ticket
+        };
+        entry.promise = fetch('/api/state').then(async res => {
+          if (!res.ok) throw new Error('The workspace could not be loaded.');
+          return res.json();
+        }).finally(() => {
+          if (stateRequest.current === entry) stateRequest.current = null;
+        });
+        stateRequest.current = entry;
+      }
+      const [next, content] = await Promise.all([stateRequest.current.promise, loadCatalog()]);
       if (ticket !== epoch.current) return;
       setState(previous => previous?.profile?.id === next.profile?.id && previous?.version > next.version ? previous : {
         ...next,
-        catalog: content
+        catalog: mergePublicCatalog(content, next.catalogUpdates)
       });
       setError('');
       return true;
@@ -124,7 +140,7 @@ export function Provider({
     const next = await request(payload.mode === 'invite' ? '/api/invite/accept' : '/api/session', payload);
     setState({
       ...next,
-      catalog: await loadCatalog()
+      catalog: mergePublicCatalog(await loadCatalog(), next.catalogUpdates)
     });
     setModal(null);
     setAssistant(null);
@@ -150,7 +166,7 @@ export function Provider({
       });
       if (ticket === epoch.current) setState(previous => previous?.profile?.id === data.state.profile?.id && previous?.version > data.state.version ? previous : {
         ...data.state,
-        catalog: catalog.current
+        catalog: mergePublicCatalog(catalog.current, data.state.catalogUpdates)
       });
       if (message) toast(message);
       return data.result;

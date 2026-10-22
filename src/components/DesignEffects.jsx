@@ -1,78 +1,27 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 export function CountUp({
   value,
   suffix = ''
 }) {
-  const [shown, setShown] = useState(value),
-    node = useRef(null);
-  useEffect(() => {
-    if (!Number.isFinite(value) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setShown(value);
-      return;
-    }
-    let frame, observer;
-    const run = () => {
-      const start = performance.now();
-      const tick = now => {
-        const t = Math.min(1, (now - start) / 950);
-        setShown(Math.round(value * (1 - Math.pow(1 - t, 4))));
-        if (t < 1) frame = requestAnimationFrame(tick);
-      };
-      frame = requestAnimationFrame(tick);
-    };
-    if (window.IntersectionObserver) {
-      observer = new window.IntersectionObserver(([entry]) => {
-        if (entry.isIntersecting) {
-          observer.disconnect();
-          run();
-        }
-      }, {
-        threshold: .25
-      });
-      observer.observe(node.current);
-    } else run();
-    return () => {
-      cancelAnimationFrame(frame);
-      observer?.disconnect();
-    };
-  }, [value]);
-  return <span ref={node} className="so-count"><span aria-hidden="true">{shown.toLocaleString()}{suffix}</span><span className="sr-only">{value.toLocaleString()}{suffix}</span></span>;
+  return <span className="so-count">{value.toLocaleString()}{suffix}</span>;
 }
 export function PageMotion({
   route
 }) {
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !window.IntersectionObserver) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const root = document.querySelector('.main-content, .staff-content');
-    if (!root) return;
-    const seen = new Set();
-    const observer = new window.IntersectionObserver(entries => entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('so-in-view');
-        observer.unobserve(entry.target);
-      }
-    }), {
-      threshold: .05,
-      rootMargin: '0px 0px 50px 0px'
+    const animation = root?.animate([{
+      opacity: .92,
+      transform: 'translateY(4px)'
+    }, {
+      opacity: 1,
+      transform: 'translateY(0)'
+    }], {
+      duration: 180,
+      easing: 'ease-out'
     });
-    const scan = () => root.querySelectorAll('.so-section, .card, .page-head, .staff-page-head').forEach((el, i) => {
-      if (seen.has(el) || el.parentElement.closest('.card, .so-section')) return;
-      seen.add(el);
-      el.classList.add('so-reveal');
-      el.style.setProperty('--reveal-delay', i % 3 * 45 + 'ms');
-      observer.observe(el);
-    });
-    scan();
-    const mutations = new MutationObserver(scan);
-    mutations.observe(root, {
-      childList: true,
-      subtree: true
-    });
-    return () => {
-      observer.disconnect();
-      mutations.disconnect();
-      seen.forEach(el => el.classList.remove('so-reveal', 'so-in-view'));
-    };
+    return () => animation?.cancel();
   }, [route]);
   return null;
 }

@@ -127,8 +127,14 @@ export function missionFor(profile, journey, day, catalog) {
     minutes: quotas[3],
     xp: 50
   };
-  if (!event && !checkpoint && (number % 7 === 3 || number % 14 === 10)) {
-    const type = number % 14 === 10 && (phase >= 1 || baseline >= 60) && !['Data science', 'Data analytics'].includes(profile.track) ? 'Project debugging' : 'SQL',
+  // Anchor practical work to a study weekday, shifting within that week when
+  // its usual slot is a checkpoint. Join dates must not erase every SQL lab.
+  const practicalSlot = Math.min(2, working.length - 1),
+    practicalNumber = number + working[practicalSlot] - weekday,
+    practicalCheckpoint = practicalNumber % 14 === 0 || practicalNumber === journey.totalDays,
+    practicalWeekday = working[practicalCheckpoint ? (practicalSlot + 1) % working.length : practicalSlot];
+  if (!event && !checkpoint && weekday === practicalWeekday) {
+    const type = Math.floor((practicalNumber - 1) / 7) % 2 === 1 && (phase >= 1 || baseline >= 60) && !['Data science', 'Data analytics'].includes(profile.track) ? 'Project debugging' : 'SQL',
       pool = (catalog.assessmentLabs || assessmentLabs).filter(l => l.type === type),
       foundation = pool.filter(l => l.difficulty === 'Foundation'),
       labs = phase < 2 && baseline < 60 && foundation.length ? foundation : phase < 5 ? pool.filter(l => l.difficulty !== 'Advanced') : pool,

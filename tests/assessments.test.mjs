@@ -108,6 +108,17 @@ test('a new fourth-year plan has 150 calendar days, balanced budgets, rest, and 
   assert.ok(active >= 100 && active <= 110);
   assert.ok(sql > 5 && project > 2);
   assert.ok(courses.size >= 4);
+  // Joining on any weekday must retain SQL and production debugging work.
+  for (let offset = 0; offset < 7; offset++) {
+    const calendar = buildPlan(s.profile, addDays('2026-10-19', offset), {
+      days: 150
+    });
+    const practical = Array.from({
+      length: 150
+    }, (_, i) => missionFor(s.profile, calendar, i + 1, catalog).steps).flat().filter(t => t.kind === 'assessment');
+    assert.ok(practical.filter(t => t.category === 'Databases').length > 5);
+    assert.ok(practical.filter(t => t.category !== 'Databases').length > 2);
+  }
   assert.equal(plan.targetDate, addDays(dateKey(), 149));
   assert.throws(() => buildPlan(s.profile, dateKey(), {
     days: 3

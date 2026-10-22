@@ -93,7 +93,7 @@ function Workspace() {
     document.title = `${navigation.find(x => x.path === path)?.label || 'Your workspace'} · StudentOS`;
   }, [path]);
   if (['/forgot-password', '/reset-password', '/invite'].includes(path)) return <AccountAccess />;
-  if (!state) return <div className="loading-screen"><span className="brand-mark">s<sup>✦</sup></span><h2>{error ? 'A small connection hiccup.' : 'Making room for your next chapter…'}</h2>{error ? <><p>{error}</p><Button onClick={refresh}>Try again</Button></> : <span className="loading-dots"><i /><i /><i /></span>}</div>;
+  if (!state) return <div className="loading-screen"><span className="brand-mark">s<sup>✦</sup></span><h2>{error ? 'A small connection hiccup.' : 'Loading your workspace…'}</h2>{error ? <><p>{error}</p><Button onClick={refresh}>Try again</Button></> : <span className="loading-dots"><i /><i /><i /></span>}</div>;
   if (state.sessionRequired || path === '/login' || path === '/register') return <Welcome />;
   if (state.profile.enrollmentStatus === 'pending') return <EnrollmentPending />;
   if (['teacher', 'placement', 'support', 'admin'].includes(state.profile.role)) return <StaffWorkspace />;

@@ -16,4 +16,5 @@ import './vibrant.css';
 import './presentation.css';
 import './refinements.css';
 import './studio.css';
+import './bright.css';
 createRoot(document.getElementById('root')).render(<React.StrictMode><ErrorBoundary><App /></ErrorBoundary></React.StrictMode>);
