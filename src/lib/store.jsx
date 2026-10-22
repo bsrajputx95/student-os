@@ -2,6 +2,7 @@ import React, { createContext, useContext, useEffect, useState, useCallback, use
 import catalogUrl from 'virtual:studentos-catalog-url';
 import { mergePublicCatalog } from '../../shared/public-catalog.js';
 import { readApiResponse } from './http-response.js';
+import { browserWorkspaceCache, cacheIdentity, validWorkspace } from './workspace-cache.js';
 const Store = import.meta.hot?.data.context || createContext(null);
 if (import.meta.hot) import.meta.hot.data.context = Store;
 export function navigate(path) {
@@ -31,11 +32,29 @@ export function Provider({
     [error, setError] = useState(''),
     [toasts, setToasts] = useState([]),
     [modal, setModal] = useState(null),
-    [assistant, setAssistant] = useState(null);
+    [assistant, setAssistant] = useState(null),
+    [savedView, setSavedView] = useState(false);
   const catalog = useRef(null),
     catalogRequest = useRef(null),
     stateRequest = useRef(null),
-    epoch = useRef(0);
+    epoch = useRef(0),
+    cache = useRef(null),
+    liveReady = useRef(false),
+    readOnly = useRef(false);
+  if (!cache.current) cache.current = browserWorkspaceCache();
+  const announceSession = useCallback(() => {
+    try { window.localStorage.setItem('studentos-session-change', crypto.randomUUID()); } catch {}
+  }, []);
+  const resetLocal = useCallback(() => {
+    epoch.current++;
+    liveReady.current = false;
+    readOnly.current = false;
+    cache.current.clear();
+    setSavedView(false);
+    setModal(null);
+    setAssistant(null);
+    setState({ sessionRequired: true, version: 0, catalog: catalog.current });
+  }, []);
   const toast = useCallback((message, tone = 'success') => {
     const id = Date.now() + Math.random();
     setToasts(t => [...t, {
@@ -45,6 +64,13 @@ export function Provider({
     }]);
     setTimeout(() => setToasts(t => t.filter(x => x.id !== id)), 4200);
   }, []);
+  const openModal = useCallback(value => {
+    if (value && readOnly.current) {
+      toast('Your saved view is updating. Please try again when your live workspace is ready.', 'info');
+      return;
+    }
+    setModal(value);
+  }, [toast]);
   const loadCatalog = useCallback(async () => {
     if (catalog.current) return catalog.current;
     if (!catalogRequest.current) catalogRequest.current = fetch(catalogUrl).then(async res => {
@@ -62,24 +88,26 @@ export function Provider({
         const entry = {
           ticket
         };
-        entry.promise = fetch('/api/state').then(async res => {
-          if (!res.ok) throw new Error('The workspace could not be loaded.');
-          return res.json();
-        }).finally(() => {
+        entry.promise = fetch('/api/state', { cache: 'no-store', signal: AbortSignal.timeout(110000) }).then(readApiResponse).finally(() => {
           if (stateRequest.current === entry) stateRequest.current = null;
         });
         stateRequest.current = entry;
       }
       const [next, content] = await Promise.all([stateRequest.current.promise, loadCatalog()]);
       if (ticket !== epoch.current) return;
+      liveReady.current = true;
+      readOnly.current = false;
+      setSavedView(false);
+      if (next.sessionRequired) cache.current.clear();
       setState(previous => previous?.profile?.id === next.profile?.id && previous?.version > next.version ? previous : {
         ...next,
         catalog: mergePublicCatalog(content, next.catalogUpdates)
       });
       setError('');
+      window.dispatchEvent(new Event('studentos-workspace-ready'));
       return true;
     } catch (err) {
-      setError(err.message);
+      if (ticket === epoch.current) setError(err.message);
       return false;
     }
   }, [loadCatalog]);
@@ -90,15 +118,47 @@ export function Provider({
       const ok = await refresh();
       if (!ok && !stopped && attempt < 5) timer = setTimeout(() => connect(attempt + 1), Math.min(10000, 1000 * 2 ** attempt));
     }
-    connect();
-    const expired = () => refresh();
+    const ticket = epoch.current;
+    // A cookie-validated identity is required before any private saved view is shown.
+    async function restore() {
+      try {
+        const record = await Promise.race([cache.current.read(), new Promise(resolve => setTimeout(() => resolve(null), 200))]);
+        if (!record || stopped || liveReady.current || ticket !== epoch.current) return;
+        const identity = await fetch('/api/session/identity', { cache: 'no-store', signal: AbortSignal.timeout(15000) }).then(readApiResponse);
+        if (stopped || liveReady.current || ticket !== epoch.current) return;
+        if (!validWorkspace(record, cacheIdentity(identity.profile))) {
+          await cache.current.clear();
+          return;
+        }
+        const content = await loadCatalog();
+        if (stopped || liveReady.current || ticket !== epoch.current) return;
+        readOnly.current = true;
+        setSavedView(true);
+        setState({ ...record.view, catalog: content });
+      } catch { /* No cached private view is displayed without a verified session. */ }
+      finally {
+        if (!stopped && ticket === epoch.current) connect();
+      }
+    }
+    restore();
+    const expired = () => { resetLocal(); announceSession(); refresh(); };
+    const accountChanged = event => {
+      if (event.key !== 'studentos-session-change') return;
+      resetLocal();
+      refresh();
+    };
     window.addEventListener('studentos-session-expired', expired);
+    window.addEventListener('storage', accountChanged);
     return () => {
       stopped = true;
       clearTimeout(timer);
       window.removeEventListener('studentos-session-expired', expired);
+      window.removeEventListener('storage', accountChanged);
     };
-  }, [refresh]);
+  }, [refresh, loadCatalog, resetLocal, announceSession]);
+  useEffect(() => {
+    if (state?.profile && !savedView) cache.current.save(state);
+  }, [state, savedView]);
   const profileId = state?.profile?.id;
   const realtimeTransport = state?.realtimeTransport;
   useEffect(() => {
@@ -124,6 +184,7 @@ export function Provider({
     return () => stream.close();
   }, [profileId, realtimeTransport, refresh]);
   const request = useCallback(async (url, payload) => {
+    if (readOnly.current && !['/api/session', '/api/invite/accept', '/api/session/end'].includes(url)) throw new Error('Your saved view is still updating. Reconnect and refresh before making changes.');
     const res = await fetch(url, {
       method: 'POST',
       headers: {
@@ -138,21 +199,31 @@ export function Provider({
     return readApiResponse(res);
   }, []);
   const startSession = async payload => {
-    epoch.current++;
+    const ticket = ++epoch.current;
+    await cache.current.clear();
     const next = await request(payload.mode === 'invite' ? '/api/invite/accept' : '/api/session', payload);
+    const content = await loadCatalog();
+    if (ticket !== epoch.current) return;
+    liveReady.current = true;
+    readOnly.current = false;
+    setSavedView(false);
+    setError('');
+    window.dispatchEvent(new Event('studentos-workspace-ready'));
     setState({
       ...next,
-      catalog: mergePublicCatalog(await loadCatalog(), next.catalogUpdates)
+      catalog: mergePublicCatalog(content, next.catalogUpdates)
     });
+    announceSession();
     setModal(null);
     setAssistant(null);
     navigate(['teacher', 'placement', 'support', 'admin'].includes(next.profile?.role) ? '/staff/overview' : '/overview');
   };
   const endSession = async () => {
     epoch.current++;
+    await cache.current.clear();
     const next = await request('/api/session/end', {});
-    setModal(null);
-    setAssistant(null);
+    resetLocal();
+    announceSession();
     setState({
       ...next,
       catalog: catalog.current
@@ -179,12 +250,13 @@ export function Provider({
   }, [toast, request]);
   return <Store.Provider value={{
     state,
+    savedView,
     error,
     refresh,
     act,
     toast,
     modal,
-    setModal,
+    setModal: openModal,
     assistant,
     setAssistant,
     startSession,

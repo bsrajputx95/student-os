@@ -453,6 +453,12 @@ export function createApplication(options = {}) {
           version: 0
         });
       }
+      if (req.method === 'GET' && url.pathname === '/api/session/identity') {
+        const state = id && getState(id);
+        if (!state) return json(res, 200, { sessionRequired: true });
+        const { id: profileId, role, collegeId, college, enrollmentStatus } = state.profile;
+        return json(res, 200, { profile: { id: profileId, role, collegeId, college, enrollmentStatus } });
+      }
       if (req.method === 'GET' && url.pathname === '/api/state') {
         const state = id && getState(id);
         if (!state) return json(res, 200, {

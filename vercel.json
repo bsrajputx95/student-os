@@ -18,11 +18,15 @@
       "destination": "/api/index"
     },
     {
-      "source": "/((?!api/|assets/|fonts/|brands/|avatars/|learning/|icons/|assessment-kits/|favicon.svg|practice-runner.html).*)",
+      "source": "/((?!api/|assets/|fonts/|brands/|avatars/|learning/|icons/|assessment-kits/|favicon.svg|sw.js|practice-runner.html).*)",
       "destination": "/index.html"
     }
   ],
   "headers": [
+    {
+      "source": "/sw.js",
+      "headers": [{ "key": "Cache-Control", "value": "no-cache, max-age=0, must-revalidate" }]
+    },
     {
       "source": "/(.*)",
       "headers": [

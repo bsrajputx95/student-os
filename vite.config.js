@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { catalog } from './shared/catalog.js';
+import { publicCachePlugin } from './scripts/public-cache-plugin.mjs';
 // Publish exactly the already-sanitized public API shape as a hashed CDN asset.
 // Scoring modules are evaluated by the build, never imported into browser code.
 function publicCatalogAsset() {
@@ -31,6 +32,6 @@ function publicContentBoundary() {
   };
 }
 export default defineConfig({
-  plugins: [react(), publicCatalogAsset(), publicContentBoundary()],
+  plugins: [react(), publicCatalogAsset(), publicContentBoundary(), publicCachePlugin()],
   server: { host: '127.0.0.1', port: 5180, strictPort: true, watch:{ignored:['**/data/**','**/.runtime/**']}, proxy: { '/api': 'http://127.0.0.1:5080' } },
 });

@@ -17,6 +17,8 @@ const Messages = lazy(() => import('./pages/Messages.jsx'));
 const SettingsPage = lazy(() => import('./pages/SettingsPage.jsx'));
 import { ModalHost } from './components/overlays.jsx';
 import Quid from './components/Quid.jsx';
+import WorkspaceLoading from './components/WorkspaceLoading.jsx';
+import CacheStatus from './components/CacheStatus.jsx';
 import Welcome from './pages/Welcome.jsx';
 const StaffWorkspace = lazy(() => import('./staff/StaffWorkspace.jsx'));
 const StaffEntry = lazy(() => import('./staff/StaffWorkspace.jsx').then(module => ({
@@ -54,6 +56,7 @@ const navigation = [{
 function Workspace() {
   const {
     state,
+    savedView,
     error,
     refresh,
     setModal,
@@ -67,13 +70,13 @@ function Workspace() {
     [notifications, setNotifications] = useState(false);
   const prompted = useRef(new Set());
   useEffect(() => {
-    if (state?.profile && !['teacher', 'placement', 'support', 'admin'].includes(state.profile.role) && !state.profile.onboardingDone && !prompted.current.has(state.profile.id)) {
+    if (!savedView && state?.profile && !['teacher', 'placement', 'support', 'admin'].includes(state.profile.role) && !state.profile.onboardingDone && !prompted.current.has(state.profile.id)) {
       prompted.current.add(state.profile.id);
       setModal({
         type: 'onboarding'
       });
     }
-  }, [state?.profile?.id, state?.profile?.onboardingDone]);
+  }, [state?.profile?.id, state?.profile?.onboardingDone, savedView]);
   const path = route.split('?')[0],
     tab = new URLSearchParams(route.split('?')[1]).get('tab');
   useEffect(() => {
@@ -94,7 +97,7 @@ function Workspace() {
     document.title = `${navigation.find(x => x.path === path)?.label || 'Your workspace'} · StudentOS`;
   }, [path]);
   if (['/forgot-password', '/reset-password', '/invite'].includes(path)) return <AccountAccess />;
-  if (!state) return <div className="loading-screen"><span className="brand-mark">s<sup>✦</sup></span><h2>{error ? 'A small connection hiccup.' : 'Loading your workspace…'}</h2>{error ? <><p>{error}</p><Button onClick={refresh}>Try again</Button></> : <span className="loading-dots"><i /><i /><i /></span>}</div>;
+  if (!state) return <WorkspaceLoading error={error} retry={refresh} />;
   if (state.sessionRequired || path === '/login' || path === '/register') return <Welcome />;
   if (state.profile.enrollmentStatus === 'pending') return <EnrollmentPending />;
   if (['teacher', 'placement', 'support', 'admin'].includes(state.profile.role)) return <StaffWorkspace />;
@@ -167,11 +170,11 @@ function Workspace() {
             type: 'profile',
             id: 'me'
           })} /></div></header>
-      <main id="main-content" tabIndex={-1} className="main-content" key={path}><ErrorBoundary embedded key={path}><Suspense fallback={<p role="status">Opening this workspace…</p>}>{page}</Suspense></ErrorBoundary><footer className="workspace-footer"><span>StudentOS · Student workspace</span><span>Learning · Practice · Career</span></footer></main>
+      <main id="main-content" tabIndex={-1} className="main-content" key={path}><ErrorBoundary embedded key={path}><Suspense fallback={<WorkspaceLoading compact />}>{savedView && !['/', '/overview', '/progress', '/journey', '/practice', '/learn'].includes(path) ? <WorkspaceLoading compact error={error} retry={refresh} /> : page}</Suspense></ErrorBoundary><footer className="workspace-footer"><span>StudentOS · Student workspace</span><span>Learning · Practice · Career</span></footer></main>
     </div>
-    <PageMotion route={route} /><ModalHost /><Quid />
+    <PageMotion route={route} /><ModalHost />{!savedView && <Quid />}
   </div>;
 }
 export default function App() {
-  return <Provider><Suspense fallback={<div className="loading-screen"><span className="brand-mark">s<sup>✦</sup></span><h2>Opening your workspace…</h2></div>}><Workspace /></Suspense></Provider>;
+  return <Provider><Suspense fallback={<WorkspaceLoading />}><Workspace /></Suspense><CacheStatus /></Provider>;
 }
