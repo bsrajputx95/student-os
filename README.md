@@ -49,7 +49,7 @@ Copy `.env.example` to `.env` when connecting external services. Credentials bel
 
 ## Sample campus
 
-The presentation uses a fictional HKBK College of Engineering dataset with 400 student profiles and 100 staff profiles. People, academic histories, college posts, events and placement outcomes are sample records, not official college data or employer partnerships. External opportunities retain their source links.
+The presentation uses a fictional HKBK College of Engineering dataset with 800 student profiles (200 per year) and 100 staff profiles. People, academic histories, college posts, events and placement outcomes are sample records, not official college data or employer partnerships. External opportunities retain their source links.
 
 | Workspace | Username | Sample password |
 | --- | --- | --- |

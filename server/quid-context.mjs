@@ -187,6 +187,13 @@ export function staffKnowledge(actor, input, {
   const roster = students(campusKey(actor.profile)).filter(s => campusKey(s.profile) === campusKey(actor.profile) && s.profile.role === 'student'),
     q = String(input.message || '').toLowerCase(),
     plan = input.plan || parseAcademicQuery(q);
+  const namedHandle = q.match(/@([a-z0-9][a-z0-9._-]{2,29})\b|\b(hkbk\.y[1-4]\.\d{3})\b/)?.slice(1).find(Boolean);
+  if (namedHandle && !roster.some(s => s.profile.handle.toLowerCase() === namedHandle)) return {
+    kind: 'selection',
+    name: 'Student not found',
+    matches: [],
+    sources: ['College student directory']
+  };
   let matches = [];
   if (input.studentId) {
     const selected = roster.find(s => s.profile.id === input.studentId);
@@ -262,6 +269,7 @@ export function staffKnowledge(actor, input, {
       handle: s.profile.handle,
       year: s.profile.year,
       track: s.profile.track || '',
+      roleId: recommendedRole(s.profile).id,
       readiness: m.readiness,
       illustrative: !!s.profile.isDemo,
       active7: s.activity.filter(a => a.date >= dateKey(new Date(Date.now() - 6 * 86400000)) && a.date <= dateKey() && a.count > 0).length,

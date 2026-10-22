@@ -57,7 +57,7 @@ export function AcademicReport({
       }} /></label><div className="quid-student-results">{rows.slice(0, limit).map(r => <button key={r.id} onClick={() => onStudent(r)} aria-label={'Review support for ' + r.name}><span><strong>{r.name}</strong><small>Year {r.year} · @{r.handle}</small><small>{r.illustrative ? 'Sample campus history' : r.evidence?.checks ? r.evidence.checks + ' scored checks' : 'Recorded academic evidence'}</small></span><span className={'quid-score ' + (r.score < 50 ? 'needs-support' : '')}><strong>{r.score}<small>/100</small></strong><small>{r.label}</small></span><Icon name="ArrowUpRight" size={14} /></button>)}</div>{!rows.length && <p>No matching student records.</p>}{rows.length > limit && <button className="quid-show-more" onClick={() => setLimit(n => n + 12)}>Show more · {Math.min(limit, rows.length)} of {rows.length}<Icon name="ChevronRight" size={13} /></button>}<p className="quid-report-note">{report.interpretation}</p><small className="quid-report-date">As of {new Date(report.asOf).toLocaleString('en-IN', {
         dateStyle: 'medium',
         timeStyle: 'short'
-      })}{report.limited ? ' · First 400 matches displayed' : ''}</small></section>;
+      })}{report.limited ? ` · First ${report.rows.length.toLocaleString()} matches available` : ''}</small></section>;
 }
 export function SupportPlan({
   plan

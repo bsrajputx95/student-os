@@ -1,4 +1,5 @@
 import { enrichPresentationCampus } from './presentation-seed.mjs';
+import { expandHkbkRoster } from './roster-expansion.mjs';
 import { courseCertificates, certificateSvg } from './certificates.mjs';
 import { diagnosticAction, publicSession as publicDiagnostic } from './diagnostic.mjs';
 import { publicLesson } from '../shared/curriculum.js';
@@ -253,6 +254,15 @@ export function createApplication(options = {}) {
   });
   if (hkbkEnabled && options.seed !== false) enrichPresentationCampus({
     db,
+    community,
+    readProfile: getState,
+    saveProfile: save
+  });
+  // A versioned, additive upgrade also runs against the existing hosted store.
+  // Fresh seeding stays disabled there; user profiles and saved work are retained.
+  if (hkbkEnabled) expandHkbkRoster({
+    db,
+    auth,
     community,
     readProfile: getState,
     saveProfile: save

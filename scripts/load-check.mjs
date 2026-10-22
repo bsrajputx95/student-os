@@ -82,7 +82,7 @@ try {
   });
   timings.sort((a, b) => a - b);
   const report = {
-    scope: 'Disposable 500-person HKBK fixture; local machine only',
+    scope: 'Disposable 900-person HKBK fixture; local machine only',
     requests: 50,
     concurrency: 5,
     failures,

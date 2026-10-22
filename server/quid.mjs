@@ -30,7 +30,7 @@ export async function quidReply(input, state, {
   const staff = ['teacher', 'placement', 'support', 'admin'].includes(state.profile.role),
     grounding = input.grounding || {};
   if (staff && grounding.kind === 'selection') return {
-    text: 'Several students match that name. Choose the student you mean so I can review the correct academic record.',
+    text: grounding.matches.length ? 'Several students match that name. Choose the student you mean so I can review the correct academic record.' : 'I could not find that username in your college directory. Check the username or choose a student from the roster so I can review the correct record.',
     studentChoices: grounding.matches,
     actions: [],
     mode: 'records',

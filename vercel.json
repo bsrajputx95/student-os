@@ -18,7 +18,7 @@
       "destination": "/api/index"
     },
     {
-      "source": "/((?!api/|assets/|fonts/|brands/|avatars/|assessment-kits/|favicon.svg|practice-runner.html).*)",
+      "source": "/((?!api/|assets/|fonts/|brands/|avatars/|learning/|icons/|assessment-kits/|favicon.svg|practice-runner.html).*)",
       "destination": "/index.html"
     }
   ],

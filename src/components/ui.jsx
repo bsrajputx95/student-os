@@ -1,4 +1,5 @@
 import SubjectArt from './SubjectArt.jsx';
+import ProductIcon, { productIcons } from './ProductIcons.jsx';
 import ProfileImage from './ProfileImage.jsx';
 import { taskLocation } from '../../shared/navigation.js';
 import React, { useEffect, useRef } from 'react';
@@ -102,6 +103,7 @@ export function Icon({
   size = 18,
   ...props
 }) {
+  if (productIcons[name]) return <ProductIcon name={name} size={size} {...props} />;
   const C = Icons[name] || Icons.Circle;
   return <C size={size} strokeWidth={1.8} aria-hidden="true" {...props} />;
 }

@@ -2,7 +2,7 @@
 
 Updated 22 October 2026. The original findings and approved backlog remain in [PROJECT_AUDIT.md](PROJECT_AUDIT.md). This ledger describes the current implementation; the audit is a historical baseline.
 
-The website now has connected student, teacher, placement, administrator and support workflows. The populated presentation environment is deployed at [studentos-hkbk.vercel.app](https://studentos-hkbk.vercel.app), with private source at [bsrajputx95/student-os](https://github.com/bsrajputx95/student-os). It has durable private cloud snapshots and a separately generated fictional campus. Institution pilot readiness and external adapters are distinguished below; this is not a certified college service. See [DEPLOYMENT.md](DEPLOYMENT.md) for hosting limits and verified release details.
+The website now has connected student, teacher, placement, administrator and support workflows. The populated presentation environment is deployed at [studentos-hkbk.vercel.app](https://studentos-hkbk.vercel.app), with source at [bsrajputx95/student-os](https://github.com/bsrajputx95/student-os). It has durable private cloud snapshots and a separately generated fictional campus. Institution pilot readiness and external adapters are distinguished below; this is not a certified college service. See [DEPLOYMENT.md](DEPLOYMENT.md) for hosting limits and verified release details.
 
 | Area | Implemented locally | Remaining / activation gate |
 | --- | --- | --- |
@@ -22,7 +22,7 @@ The website now has connected student, teacher, placement, administrator and sup
 
 ## Verification evidence
 
-The hosted release passes **141/142 tests** and the **173-module** source check. Vercel reached READY on Node 24. Public sign-in, faculty access, live grounded Quid, a persisted bookmark across deployment and server SQL evaluation were verified. The final deployment's focused runtime-error query returned zero records. Cloud snapshots use strong reads and conditional writes, buffer responses until saving, retry safe read conflicts and reject competing writes with 409. Local institution mode retains its existing storage/security behavior. Automatic GitHub push deployment awaits the Vercel account's GitHub Login Connection; source is pushed and manual CLI deployment is operational.
+The hosted release passes **150 tests** and the **173-module** source check. Vercel reached READY on Node 24. Public sign-in, faculty access, live grounded Quid, a persisted bookmark across deployment and server SQL evaluation were verified. The final deployment's focused runtime-error query returned zero records. Cloud snapshots use strong reads and conditional writes, buffer responses until saving, retry safe read conflicts and reject competing writes with 409. Local institution mode retains its existing storage/security behavior. Automatic GitHub push deployment awaits the Vercel account's GitHub Login Connection; source is pushed and manual CLI deployment is operational.
 
 The latest interface pass uses white navigation, bold purple/blue feature panels, larger text, brighter progress cards and a real-data journey preview. The faculty hero surfaces campus counts in a compact mosaic. Public learning metadata is a hashed CDN asset; live opportunity imports merge through authenticated state. Warm hosted functions replay a bounded private SQLite journal instead of transferring the full database on each save. Counter animation loops and whole-page reveal scans were removed; brief route entry and hover feedback remain with reduced-motion support. See [PERFORMANCE.md](PERFORMANCE.md).
 
@@ -60,7 +60,7 @@ Current verification also covers certificate unlocking/idempotence/escaping, aut
 
 ## Campus data
 
-HKBK College of Engineering retains exactly **400 seeded students, 100 in each year, and 100 staff**: 80 teachers, 10 placement officers, 9 support accounts and 1 administrator. Fifteen older workspaces outside that campus are preserved. People, scores, academic eligibility fields, posts, events and company outcomes in the sample campus are fictional. Existing sample edits are retained by idempotent dataset upgrades.
+HKBK College of Engineering now contains **800 students, 200 in each year, and 100 staff** after its additive cohort upgrade: 80 teachers, 10 placement officers, 9 support accounts and 1 administrator. Fifteen older workspaces outside that campus are preserved. People, scores, academic eligibility fields, posts, events and company outcomes in the sample campus are fictional. Existing sample edits are retained by idempotent dataset upgrades.
 
 `bhavanisingh` remains the nearly finished fourth-year candidate. `hkbk.staff.091` is the sample administrator. Sample credentials are for the local sample database only; production refuses a database containing sample accounts.
 
@@ -79,3 +79,9 @@ Gemini 3 Flash (`gemini-3-flash-preview`) returned a live answer after the reque
 Twelve original SVG subject scenes replace repeated course glyphs and generic code-window thumbnails throughout learning cards and previews. Six additional locally served provider marks bring the brand asset set to 67. Course cards have distinct colors, restrained hover depth and reduced-motion support. See [FINISHING_PRIORITIES.md](FINISHING_PRIORITIES.md) for the recommended remaining product and engineering work.
 
 Live verification also covered a final-year SQL cohort (19 matching records), individual support for Aarav Rao, stretch preparation for Bhavani Singh and student-side next steps. The DSA report returned 103 matching students plus one separately unassessed student; its browser CSV download contained one header and 103 rows. These counts describe the current local records, including an additional enrolled student, and are not hardcoded. No academic scores, assignments, messages to students or real-user profile data were changed during these checks.
+
+## Additional cohorts and release edge cases · 22 October 2026
+
+An idempotent upgrade adds 400 student accounts with unique usernames and student identities, all 15 practice roles, separate strengths/gaps, course history, assignment states, mentor feedback, company applications, placement rounds and 400 shared-feed posts. Original account edits, credentials, existing posts and bookmarks are preserved. Conflicting identities abort before any account is written. New and old students share the same authorized Quid academic context. Department/role filters and complete 800-row college reports are supported; missing named usernames do not fall back to a different student.
+
+Course completion filters, invalid learning tabs, practice pagination after role/focus changes, failed preference saves, local image failures, non-JSON gateway errors, session expiry and changed-deployment recovery have been handled. Core workflows continue to be covered by the existing identity, assessment, course-completion, assignment, placement and community integration suites. The public journal retains recovery heads before checkpoint compaction; an additional test covers the full 500-to-900-person hosted migration and cold replay.

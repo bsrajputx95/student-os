@@ -1,6 +1,7 @@
 import { aiConfigured, complete } from './ai-provider.mjs';
 import { courses, quizzes, companies } from '../shared/catalog.js';
 import { assessmentLabs } from '../shared/assessments.js';
+import { practiceRoles } from '../shared/practice-roles.js';
 const skills = ['DSA', 'Frontend', 'Backend', 'Databases', 'DevOps', 'Communication'];
 const aliases = [['Databases', /\b(sql|dbms|databases?|queries|joins)\b/i], ['DSA', /\b(dsa|algorithms?|data structures?|coding patterns)\b/i], ['Frontend', /\b(front[ -]?end|react|javascript|ui\/?ux|web design|css|html)\b/i], ['DevOps', /\b(devops|cloud|linux|docker|deployment|kubernetes|networking)\b/i], ['Backend', /\b(back[ -]?end|api|python|system design|server)\b/i], ['Communication', /\b(communication|speaking|presentation|interview)\b/i]];
 export function isCohortQuestion(message) {
@@ -27,7 +28,8 @@ export function parseAcademicQuery(message) {
   const activity = /\binactive|not active|no activity|haven.t (?:practiced|practised)\b/i.test(q) ? 'inactive7' : null;
   const courseAlias = [['react', /\breact\b/i], ['javascript', /\bjavascript\b/i], ['sql', /\b(sql|dbms)\b/i], ['dsa', /\b(dsa|algorithms?)\b/i], ['python', /\bpython\b/i], ['devops', /\bdevops\b/i], ['statistics', /\bstatistics\b/i], ['machine-learning', /\bmachine learning\b/i], ['analytics', /\banalytics\b/i], ['linux', /\blinux\b/i], ['networks', /\bnetworking\b/i], ['system-design', /\bsystem design\b/i]].find(([, re]) => re.test(q))?.[0];
   const courseId = courses.find(c => q.toLowerCase().includes(c.title.toLowerCase()))?.id || courseAlias || null;
-  const department = /\b(cse|computer science)\b/i.test(q) ? 'Computer Science' : /\b(information technology|it department)\b/i.test(q) ? 'Information Technology' : /\b(ece|electronics)\b/i.test(q) ? 'Electronics' : null;
+  const department = /\b(cse|computer science)\b/i.test(q) ? 'Computer Science' : /\b(information technology|it department)\b/i.test(q) ? 'Information Technology' : /\b(ece|electronics)\b/i.test(q) ? 'Electronics' : /\bmechanical\b/i.test(q) ? 'Mechanical Engineering' : /\bartificial intelligence|\bai department\b/i.test(q) ? 'Artificial Intelligence' : null;
+  const roleId = [['data-analyst', /\bdata analysts?\b/i], ['business-analyst', /\bbusiness analysts?\b/i], ['data-scientist', /\bdata scientists?\b/i], ['ml-engineer', /\b(?:machine learning|ml) engineers?\b/i], ['data-engineer', /\bdata engineers?\b/i], ['devops-engineer', /\bdevops engineers?\b/i], ['cloud-engineer', /\bcloud engineers?\b/i], ['cybersecurity-analyst', /\bcyber\s?security\b/i], ['backend-developer', /\bback[ -]?end developers?\b/i], ['frontend-developer', /\bfront[ -]?end developers?\b/i], ['fullstack-developer', /\bfull[ -]?stack developers?\b/i], ['ui-ux-designer', /\b(?:ui\s*\/?\s*ux|ux|ui) designers?\b/i], ['mobile-developer', /\bmobile developers?\b/i], ['qa-engineer', /\b(?:qa|automation) engineers?\b/i], ['software-engineer', /\bsoftware engineers?\b/i]].find(([, pattern]) => pattern.test(q))?.[0] || null;
   const track = /\bdata (?:analytics|analysts?)\b/i.test(q) ? 'Data analytics' : /\bdata scien(?:ce|tists?)\b/i.test(q) ? 'Data science' : /\bfull[ -]?stack\b/i.test(q) ? 'Full-stack development' : null;
   return {
     scope: isCohortQuestion(q) ? 'college' : 'auto',
@@ -42,6 +44,7 @@ export function parseAcademicQuery(message) {
     courseId,
     courseStatus: courseId ? /\bnot (?:yet )?(?:completed|finished)|haven.t (?:completed|finished)|unfinished\b/i.test(q) ? 'not-completed' : /\bcompleted|finished\b/i.test(q) ? 'completed' : /\bin[ -]progress|started|studying\b/i.test(q) ? 'in-progress' : null : null,
     department,
+    roleId,
     track
   };
 }
@@ -57,6 +60,7 @@ export function validateAcademicPlan(value) {
     plan.score = value.score;
   }
   if (['asc', 'desc'].includes(value.order)) plan.order = value.order;
+  if (practiceRoles.some(r => r.id === value.roleId)) plan.roleId = value.roleId;
   if (companies.some(c => c.name === value.company)) plan.company = value.company;
   if (['overdue', 'pending', 'submitted', 'graded', 'revision requested'].includes(value.coursework)) plan.coursework = value.coursework;
   if (value.activity === 'inactive7') plan.activity = value.activity;
@@ -71,7 +75,7 @@ export async function planAcademicQuery(message, {
 } = {}) {
   const local = parseAcademicQuery(message);
   // Straightforward cohort questions need no additional model round trip.
-  if (!configured || local.skill || local.company || local.coursework || local.activity || local.courseId) return local;
+  if (!configured || local.skill || local.company || local.coursework || local.activity || local.courseId || local.roleId) return local;
   try {
     const raw = await generate([{
       role: 'system',
@@ -100,7 +104,7 @@ export function academicReport(rows, plan, {
   asOf,
   total
 }) {
-  let candidates = rows.filter(r => (!plan.year || r.year === plan.year) && (!plan.department || r.department.toLowerCase().includes(plan.department.toLowerCase())) && (!plan.track || r.track.toLowerCase().includes(plan.track.toLowerCase())) && (!plan.company || r.companies.includes(plan.company)));
+  let candidates = rows.filter(r => (!plan.year || r.year === plan.year) && (!plan.department || r.department.toLowerCase().includes(plan.department.toLowerCase())) && (!plan.track || r.track.toLowerCase().includes(plan.track.toLowerCase())) && (!plan.roleId || r.roleId === plan.roleId) && (!plan.company || r.companies.includes(plan.company)));
   const population = candidates.length;
   const unassessed = plan.skill ? candidates.filter(r => !r.evidence[plan.skill]?.assessed).length : 0;
   if (plan.skill) candidates = candidates.filter(r => r.evidence[plan.skill]?.assessed);
@@ -123,7 +127,7 @@ export function academicReport(rows, plan, {
     lte: 'at most',
     gt: 'above',
     gte: 'at least'
-  }[plan.comparison] + ' ' + plan.score + '/100', plan.company, plan.coursework && plan.coursework + ' work', plan.activity && 'No app activity in 7 days', plan.courseStatus && plan.courseStatus + ' ' + courses.find(c => c.id === plan.courseId)?.title, plan.department, plan.track].filter(Boolean);
+  }[plan.comparison] + ' ' + plan.score + '/100', plan.company, plan.coursework && plan.coursework + ' work', plan.activity && 'No app activity in 7 days', plan.courseStatus && plan.courseStatus + ' ' + courses.find(c => c.id === plan.courseId)?.title, plan.department, plan.track, plan.roleId && practiceRoles.find(r => r.id === plan.roleId)?.name].filter(Boolean);
   return {
     title: plan.skill ? plan.skill + ' preparation review' : 'Academic record review',
     college,
@@ -135,7 +139,7 @@ export function academicReport(rows, plan, {
     skill: plan.skill,
     filters,
     sampleCount: candidates.filter(r => r.illustrative).length,
-    rows: candidates.slice(0, 400).map(r => ({
+    rows: candidates.slice(0, 2000).map(r => ({
       id: r.id,
       name: r.name,
       handle: r.handle,
@@ -149,7 +153,7 @@ export function academicReport(rows, plan, {
       overdue: r.overdue,
       active7: r.active7
     })),
-    limited: candidates.length > 400,
+    limited: candidates.length > 2000,
     interpretation: 'Scores are preparation estimates that include evidence coverage and recency. They do not establish a student’s ability or explain absence. Unassessed skills are excluded from skill rankings.'
   };
 }

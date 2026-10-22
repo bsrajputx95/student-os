@@ -9,6 +9,7 @@ import React, { useEffect, useState } from 'react';
 import { useStore, niceDate, navigate } from '../lib/store.jsx';
 import { PageHead, Button, Icon, Badge, Tabs, Progress, CourseArt, Empty } from '../components/ui.jsx';
 import { CollegeAssignments } from '../components/CollegeConnected.jsx';
+const learningTabs = ['courses', 'videos', 'resources', 'assignments', 'certificates', 'notes'];
 export default function Learn({
   initialTab
 }) {
@@ -17,20 +18,21 @@ export default function Learn({
     setModal
   } = useStore();
   const [preview, setPreview] = useState(null);
-  const [tab, setTab] = useState(initialTab || 'courses'),
+  const [tab, setTab] = useState(learningTabs.includes(initialTab) ? initialTab : 'courses'),
     [filter, setFilter] = useState('All learning'),
     [query, setQuery] = useState('');
-  useEffect(() => setTab(initialTab || 'courses'), [initialTab]);
+  useEffect(() => setTab(learningTabs.includes(initialTab) ? initialTab : 'courses'), [initialTab]);
   useEffect(() => {
     const id = new URLSearchParams(window.location.search).get('course');
     if (id && state.catalog.courses.some(c => c.id === id)) setModal({
       type: 'course',
       id
     });
-  }, []);
-  const courses = state.catalog.courses.filter(c => c.title.toLowerCase().includes(query.toLowerCase()) && (filter === 'All learning' || filter === 'For my path' && c.tags.includes(state.profile.track) || filter === 'In progress' && state.courseProgress[c.id] > 0));
+  }, [location.search]);
+  const courses = state.catalog.courses.filter(c => [c.title, c.category, c.description, ...c.tags].join(' ').toLowerCase().includes(query.trim().toLowerCase()) && (filter === 'All learning' || filter === 'For my path' && c.tags.includes(state.profile.track) || filter === 'In progress' && state.courseProgress[c.id] > 0 && state.courseProgress[c.id] < c.lessons || filter === 'Completed' && state.courseProgress[c.id] >= c.lessons));
   const featured = state.catalog.courses.filter(c => c.tags.includes(state.profile.track) && (state.courseProgress[c.id] || 0) < c.lessons).sort((a, b) => (state.courseProgress[b.id] || 0) / b.lessons - (state.courseProgress[a.id] || 0) / a.lessons)[0] || state.catalog.courses.find(c => c.tags.includes(state.profile.track)) || state.catalog.courses[0];
-  const feature = coursePresentation[featured.id];
+  if (!featured) return <Empty title="The learning library is being updated." description="Refresh the workspace to load the current course catalog." />;
+  const feature = coursePresentation[featured.id] || coursePresentation.javascript;
   return <><PageHead eyebrow="LEARNING WORKSPACE" title="Courses & learning" description="Continue a course, review assigned work or browse learning resources."><Badge color="blue"><Icon name="BookOpen" size={14} />{Object.values(state.courseProgress).reduce((a, b) => a + b, 0)} lessons explored</Badge></PageHead><Tabs items={[{
       id: 'courses',
       label: 'My learning'
@@ -56,7 +58,7 @@ export default function Learn({
     }} />{tab === 'courses' ? <><div className="learn-feature"><div><Badge color="glass">RECOMMENDED COURSE</Badge><h2>{feature.short}</h2><p>{feature.outcome}</p><Button icon="ArrowUpRight" onClick={() => setModal({
             type: 'course',
             id: featured.id
-          })}>{(state.courseProgress[featured.id] || 0) > 0 ? "Continue learning" : "Explore this course"}</Button></div><div className="learn-feature-art"><SubjectArt type={featured.id} /></div></div><div className="section-head learning-filters"><div className="filter-pills">{['All learning', 'For my path', 'In progress'].map(f => <button key={f} className={filter === f ? 'active' : ''} onClick={() => setFilter(f)}>{f}</button>)}</div><label className="search-field"><Icon name="Search" size={16} /><input aria-label="Search courses" placeholder="Search courses…" value={query} onChange={e => setQuery(e.target.value)} /></label></div><div className="course-grid">{courses.map(c => <section className="card course-card" key={c.id}><button className="course-cover" aria-label={'Open ' + c.title} onClick={() => setModal({
+          })}>{state.courseProgress[featured.id] >= featured.lessons ? 'Review this course' : (state.courseProgress[featured.id] || 0) > 0 ? 'Continue learning' : 'Explore this course'}</Button></div><div className="learn-feature-art"><CourseCover courseId={featured.id} /></div></div><div className="section-head learning-filters"><div className="filter-pills">{['All learning', 'For my path', 'In progress', 'Completed'].map(f => <button key={f} className={filter === f ? 'active' : ''} onClick={() => setFilter(f)}>{f}</button>)}</div><label className="search-field"><Icon name="Search" size={16} /><input aria-label="Search courses" placeholder="Search courses…" value={query} onChange={e => setQuery(e.target.value)} /></label></div><div className="course-grid">{courses.map(c => <section className="card course-card" key={c.id}><button className="course-cover" aria-label={'Open ' + c.title} onClick={() => setModal({
             type: 'course',
             id: c.id
           })}><CourseCover courseId={c.id} /><Badge color="glass">{c.type === 'Read & do' ? <Icon name="BookOpen" size={12} /> : <Icon name="Play" size={12} />} {c.type}</Badge></button><div className="course-card-body"><div className="course-category"><span>{c.category}</span><span>{c.level}</span></div><button className="heading-button" onClick={() => setModal({
@@ -65,5 +67,5 @@ export default function Learn({
             })}><h3>{c.title}</h3></button><p className="course-card-description">{c.description}</p><p>{c.lessons} lessons · {c.author}</p><Progress value={(state.courseProgress[c.id] || 0) / c.lessons * 100} color={c.color === 'mint' ? 'mint' : 'purple'} /><div className="course-card-bottom"><button className="text-link" onClick={() => setPreview(c)}><Icon name="Play" size={13} />Preview</button><span>{state.courseProgress[c.id] > 0 ? `${state.courseProgress[c.id]} / ${c.lessons} complete` : 'Not started'}</span><button className="text-link" onClick={() => setModal({
                 type: 'course',
                 id: c.id
-              })}>{state.courseProgress[c.id] > 0 ? 'Continue' : 'Explore'}<Icon name="ArrowUpRight" size={14} /></button></div></div></section>)}</div>{!courses.length && <Empty title="A different search might spark something." description="Try another topic or browse all learning." />}</> : tab === 'videos' ? <VideoLibrary /> : tab === 'resources' ? <ResourceLibrary /> : tab === 'assignments' ? <CollegeAssignments /> : tab === 'notes' ? <LearningNotebook /> : <><CourseCertificates /><CredentialWallet /><div className="certificate-banner"><Icon name="Award" size={52} /><div><h2>Learn something. Have something to show.</h2><p>Find certificates that complement the skills you are building.</p></div></div><CertificateRecommendations /></>}{preview && <CoursePreview course={preview} close={() => setPreview(null)} />}</>;
+              })}>{state.courseProgress[c.id] >= c.lessons ? 'Review' : state.courseProgress[c.id] > 0 ? 'Continue' : 'Explore'}<Icon name="ArrowUpRight" size={14} /></button></div></div></section>)}</div>{!courses.length && <Empty title="A different search might spark something." description="Try another topic or browse all learning." />}</> : tab === 'videos' ? <VideoLibrary /> : tab === 'resources' ? <ResourceLibrary /> : tab === 'assignments' ? <CollegeAssignments /> : tab === 'notes' ? <LearningNotebook /> : <><CourseCertificates /><CredentialWallet /><div className="certificate-banner"><Icon name="Award" size={52} /><div><h2>Learn something. Have something to show.</h2><p>Find certificates that complement the skills you are building.</p></div></div><CertificateRecommendations /></>}{preview && <CoursePreview course={preview} close={() => setPreview(null)} />}</>;
 }

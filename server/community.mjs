@@ -54,16 +54,30 @@ export function createCommunity({
       roster = people(id),
       blocked = who => (c.blocks || []).some(b => b.from === me && b.to === who || b.to === me && b.from === who),
       visible = entry => !entry.hidden && !blocked(entry.author) && (!entry.targetIds || state.profile.role !== 'student' || entry.targetIds.includes(me));
+    const followers = new Map(),
+      following = new Map(),
+      postCounts = new Map();
+    for (const f of c.follows) {
+      followers.set(f.to, (followers.get(f.to) || 0) + 1);
+      following.set(f.from, (following.get(f.from) || 0) + 1);
+    }
+    for (const post of c.posts) if (visible(post)) postCounts.set(post.author, (postCounts.get(post.author) || 0) + 1);
+    const unread = Object.fromEntries(['global', ...roster.filter(p => p.id !== me).map(p => p.id)].map(thread => [thread, 0]));
+    for (const message of c.messages) {
+      if (message.author === me || !visible(message) || message.to !== 'global' && message.to !== me) continue;
+      const thread = message.to === 'global' ? 'global' : message.author;
+      if (Object.hasOwn(unread, thread) && message.time > ((c.reads || {})[me + ':' + thread] || '')) unread[thread]++;
+    }
     return {
       profile: {
         ...state.profile,
-        followers: c.follows.filter(f => f.to === me).length,
-        followingCount: c.follows.filter(f => f.from === me).length
+        followers: followers.get(me) || 0,
+        followingCount: following.get(me) || 0
       },
       communityEnabled: true,
       communityBlocks: (c.blocks || []).filter(b => b.from === me).map(b => b.to),
       communityMutes: (c.mutes || []).filter(b => b.from === me).map(b => b.to),
-      communityUnread: Object.fromEntries(['global', ...roster.filter(p => p.id !== me).map(p => p.id)].map(thread => [thread, c.messages.filter(m => m.author !== me && visible(m) && (thread === 'global' ? m.to === 'global' : m.to === me && m.author === thread) && m.time > ((c.reads || {})[me + ':' + thread] || '')).length])),
+      communityUnread: unread,
       communityReports: can(state.profile, 'community.moderate') ? (c.reports || []).map(r => ({
         ...r,
         post: c.posts.find(p => p.id === r.postId)
@@ -71,9 +85,9 @@ export function createCommunity({
       communityVersion: c.version,
       communityPeople: roster.map(person => ({
         ...person,
-        followers: c.follows.filter(f => f.to === person.id).length,
-        followingCount: c.follows.filter(f => f.from === person.id).length,
-        postCount: c.posts.filter(p => p.author === person.id && visible(p)).length
+        followers: followers.get(person.id) || 0,
+        followingCount: following.get(person.id) || 0,
+        postCount: postCounts.get(person.id) || 0
       })),
       communityPosts: c.posts.filter(visible).filter(p => !(c.mutes || []).some(b => b.from === me && b.to === p.author)).toSorted((a, b) => a.time.localeCompare(b.time) || a.id.localeCompare(b.id)).slice(-(options.limit || c.posts.length || 1)).map(p => ({
         ...p,

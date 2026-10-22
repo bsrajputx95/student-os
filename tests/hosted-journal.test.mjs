@@ -10,6 +10,11 @@ import { BlobPreconditionFailedError } from '@vercel/blob';
 import { createJournalStore } from '../server/hosted-journal.mjs';
 import { createFastHostedHandler } from '../server/hosted-fast-handler.mjs';
 import { BufferedResponse } from '../server/hosted-handler.mjs';
+import { seedHkbk } from '../server/hkbk-seed.mjs';
+import { createAuth } from '../server/auth.mjs';
+import { createCommunity } from '../server/community.mjs';
+import { createCampusService } from '../server/campus.mjs';
+import { indexMember } from '../server/database.mjs';
 process.env.STUDENTOS_SKIP_ENV = '1';
 const {
   createApplication
@@ -294,8 +299,109 @@ test('checkpoint compaction retains a replayable complete campus and prior recov
     store = f.store(),
     saved = await store.current();
   const previous = saved.head.base.key;
-  const compacted = await store.commit(Buffer.from('a delta'), saved, () => Buffer.from('complete campus'), true);
+  const withDelta = await store.commit(Buffer.from('acknowledged earlier change'), saved, () => {
+    throw new Error('No checkpoint yet');
+  });
+  const compacted = await store.commit(Buffer.from('a delta'), withDelta, () => Buffer.from('complete campus'), true);
   assert.equal(compacted.head.entries.length, 0);
   assert.equal((await store.object(compacted.head.base)).toString(), 'complete campus');
   assert.ok(f.cloud.blobs.has(previous));
+  assert.deepEqual(JSON.parse(f.cloud.blobs.get(compacted.head.recoveryKey).bytes.toString()), withDelta.head);
+  assert.ok(f.cloud.blobs.has(previous), 'Recovery retains the prior immutable checkpoint as well as its inline changes');
+});
+test('hosted upgrade expands an existing campus once and preserves edited work through compaction and cold replay', async () => {
+  const dir = mkdtempSync(resolve(tmpdir(), 'studentos-journal-test-'));
+  const app = createApplication({
+    seed: false,
+    env: {
+      ...env,
+      STUDENTOS_DATA_DIR: dir
+    }
+  });
+  const db = app.db;
+  const readProfile = id => {
+    const row = db.prepare('SELECT document FROM profiles WHERE id=?').get(id);
+    return row ? JSON.parse(row.document) : null;
+  };
+  const saveProfile = s => {
+    db.prepare('INSERT INTO profiles VALUES(?,?,?) ON CONFLICT(id) DO UPDATE SET document=excluded.document').run(s.profile.id, s.profile.handle, JSON.stringify(s));
+    indexMember(db, s.profile);
+  };
+  const community = createCommunity({
+    db,
+    readProfile,
+    saveProfile,
+    broadcastCampus: () => {}
+  });
+  createCampusService({
+    db,
+    readProfile,
+    saveProfile
+  });
+  seedHkbk({
+    db,
+    auth: createAuth(db),
+    community,
+    readProfile,
+    saveProfile
+  });
+  const featured = readProfile('demo-bhavanisingh');
+  featured.resume.summary = 'A portfolio edit made before the hosted upgrade';
+  featured.bookmarks = [{
+    resourceId: 'devops:11',
+    courseId: 'devops',
+    lesson: 11
+  }];
+  saveProfile(featured);
+  db.exec('PRAGMA wal_checkpoint(TRUNCATE)');
+  db.close();
+  const original = gzipSync(readFileSync(resolve(dir, 'studentos.sqlite')));
+  rmSync(dir, {
+    recursive: true,
+    force: true
+  });
+  const cloud = storage();
+  const legacy = {
+    current: async () => ({
+      bytes: original,
+      etag: 'original-campus'
+    })
+  };
+  const makeStore = () => createJournalStore({
+    ...cloud,
+    legacy
+  });
+  const writer = createFastHostedHandler({
+    store: makeStore(),
+    createApp: createApplication,
+    env
+  });
+  const response = new BufferedResponse();
+  await writer(req('/api/session', {
+    mode: 'login',
+    handle: 'bhavanisingh',
+    password: '12345678'
+  }), response);
+  assert.equal(response.statusCode, 200);
+  assert.equal(parse(response).communityPeople.length, 900);
+  const saved = await makeStore().current();
+  assert.ok(saved.head.recoveryKey, 'The pre-upgrade journal is retained in a private recovery object');
+  writer.close();
+  const cold = createFastHostedHandler({
+    store: makeStore(),
+    createApp: createApplication,
+    env
+  });
+  try {
+    const read = new BufferedResponse();
+    await cold(req('/api/state', undefined, response.getHeader('set-cookie').split(';')[0]), read);
+    assert.equal(read.statusCode, 200);
+    const state = parse(read);
+    assert.equal(state.communityPeople.length, 900);
+    assert.equal(state.resume.summary, featured.resume.summary);
+    assert.deepEqual(state.bookmarks, featured.bookmarks);
+    assert.equal(state.communityPeople.filter(p => p.role === 'student' && p.year === 4).length, 200);
+  } finally {
+    cold.close();
+  }
 });

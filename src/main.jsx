@@ -17,4 +17,5 @@ import './presentation.css';
 import './refinements.css';
 import './studio.css';
 import './bright.css';
+import './learning-polish.css';
 createRoot(document.getElementById('root')).render(<React.StrictMode><ErrorBoundary><App /></ErrorBoundary></React.StrictMode>);

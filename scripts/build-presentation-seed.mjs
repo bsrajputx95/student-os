@@ -17,7 +17,7 @@ const app = createApplication({
   }
 });
 const people = app.db.prepare('SELECT COUNT(*) AS n FROM profiles').get().n;
-if (people !== 500) throw new Error('A fresh hosted seed must contain exactly 400 fictional students and 100 fictional staff.');
+if (people !== 900) throw new Error('A fresh hosted seed must contain exactly 800 fictional students and 100 fictional staff.');
 app.db.exec('PRAGMA wal_checkpoint(TRUNCATE)');
 app.db.close();
 const bytes = gzipSync(readFileSync(resolve(directory, 'studentos.sqlite')));

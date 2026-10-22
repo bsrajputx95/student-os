@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState, useCallback, useRef } from 'react';
 import catalogUrl from 'virtual:studentos-catalog-url';
 import { mergePublicCatalog } from '../../shared/public-catalog.js';
+import { readApiResponse } from './http-response.js';
 const Store = import.meta.hot?.data.context || createContext(null);
 if (import.meta.hot) import.meta.hot.data.context = Store;
 export function navigate(path) {
@@ -128,12 +129,13 @@ export function Provider({
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(payload),
+      signal: AbortSignal.timeout(110000)
+    }).catch(() => {
+      throw new Error('The connection was interrupted. Refresh to check your saved work before trying again.');
     });
-    const data = await res.json();
     if (res.status === 401) window.dispatchEvent(new Event('studentos-session-expired'));
-    if (!res.ok) throw new Error(data.error || 'This request failed.');
-    return data;
+    return readApiResponse(res);
   }, []);
   const startSession = async payload => {
     epoch.current++;

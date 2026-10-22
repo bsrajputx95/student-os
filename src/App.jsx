@@ -1,4 +1,5 @@
 import { PageMotion } from './components/DesignEffects.jsx';
+import ErrorBoundary from './components/ErrorBoundary.jsx';
 import AccountAccess, { EnrollmentPending } from './components/AccountAccess.jsx';
 import React, { useEffect, useState, useRef, lazy, Suspense } from 'react';
 import { Provider, useStore, useRoute, navigate, yearLabel } from './lib/store.jsx';
@@ -166,7 +167,7 @@ function Workspace() {
             type: 'profile',
             id: 'me'
           })} /></div></header>
-      <main id="main-content" tabIndex={-1} className="main-content" key={path}><Suspense fallback={<p role="status">Opening this workspace…</p>}>{page}</Suspense><footer className="workspace-footer"><span>StudentOS · Student workspace</span><span>Learning · Practice · Career</span></footer></main>
+      <main id="main-content" tabIndex={-1} className="main-content" key={path}><ErrorBoundary embedded key={path}><Suspense fallback={<p role="status">Opening this workspace…</p>}>{page}</Suspense></ErrorBoundary><footer className="workspace-footer"><span>StudentOS · Student workspace</span><span>Learning · Practice · Career</span></footer></main>
     </div>
     <PageMotion route={route} /><ModalHost /><Quid />
   </div>;

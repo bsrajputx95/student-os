@@ -128,10 +128,20 @@ export function createJournalStore({
       revision: randomUUID()
     };
     if (compact) {
+      // Retain the entire prior head, including inline changesets. Keeping only
+      // its checkpoint would miss acknowledged work recorded since that file.
+      const recoveryKey = prefix + '/recovery/' + randomUUID() + '.json';
+      await write(recoveryKey, JSON.stringify(saved.head), {
+        access: 'private',
+        addRandomSuffix: false,
+        allowOverwrite: false,
+        contentType: 'application/json'
+      });
       head.base = await putObject(gzipSync(await checkpoint(), {
         level: 1
       }));
       head.entries = [];
+      head.recoveryKey = recoveryKey;
     } else {
       // Small changes are durable in the conditional head itself. This removes
       // a storage round trip for login, bookmarks, drafts and most progress saves,

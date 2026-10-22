@@ -1,0 +1,80 @@
+[
+  {
+    "id": "code",
+    "photo": "photo-1542831371-29b0f74f9713",
+    "author": "Florian Olivo",
+    "source": "https://unsplash.com/photos/lines-of-html-codes-4hbJ-eymZ1o",
+    "path": "/learning/code-640.webp",
+    "width": 640,
+    "bytes": 44728,
+    "sha256": "08362b9183131986287b2c2edcf12af14dfbfb3525b56ede75408d3d7f191b70",
+    "retrievedAt": "2026-10-22T15:01:15.489Z",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license"
+  },
+  {
+    "id": "code",
+    "photo": "photo-1542831371-29b0f74f9713",
+    "author": "Florian Olivo",
+    "source": "https://unsplash.com/photos/lines-of-html-codes-4hbJ-eymZ1o",
+    "path": "/learning/code-1200.webp",
+    "width": 1200,
+    "bytes": 104720,
+    "sha256": "18e4b12c313c292e602adcc7192dc5a24f0265303ef88e88c6507067e66e42ac",
+    "retrievedAt": "2026-10-22T15:01:16.654Z",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license"
+  },
+  {
+    "id": "infrastructure",
+    "photo": "photo-1558494949-ef010cbdcc31",
+    "author": "Taylor Vick",
+    "source": "https://unsplash.com/photos/cable-network-M5tzZtFCOfs",
+    "path": "/learning/infrastructure-640.webp",
+    "width": 640,
+    "bytes": 82502,
+    "sha256": "c5ebbd6ab1b5aa3a6ca582f64cea1d3fc49d08fd555fb37f724ceebbcb49a7a8",
+    "retrievedAt": "2026-10-22T15:01:17.393Z",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license"
+  },
+  {
+    "id": "infrastructure",
+    "photo": "photo-1558494949-ef010cbdcc31",
+    "author": "Taylor Vick",
+    "source": "https://unsplash.com/photos/cable-network-M5tzZtFCOfs",
+    "path": "/learning/infrastructure-1200.webp",
+    "width": 1200,
+    "bytes": 270548,
+    "sha256": "d54fcf04ea38383494528e4290c397583629c7e558e3bd46b5fb66f029b25fd5",
+    "retrievedAt": "2026-10-22T15:01:18.239Z",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license"
+  },
+  {
+    "id": "analytics",
+    "photo": "photo-1551288049-bebda4e38f71",
+    "author": "Luke Chesser",
+    "source": "https://unsplash.com/photos/graphs-of-performance-analytics-on-a-laptop-screen-JKUTrJ4vK00",
+    "path": "/learning/analytics-640.webp",
+    "width": 640,
+    "bytes": 37930,
+    "sha256": "d2f1a4bfc7f59b166b376443ea60bb261f5cc842bd05ea1044fa6d34f144340a",
+    "retrievedAt": "2026-10-22T15:01:20.439Z",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license"
+  },
+  {
+    "id": "analytics",
+    "photo": "photo-1551288049-bebda4e38f71",
+    "author": "Luke Chesser",
+    "source": "https://unsplash.com/photos/graphs-of-performance-analytics-on-a-laptop-screen-JKUTrJ4vK00",
+    "path": "/learning/analytics-1200.webp",
+    "width": 1200,
+    "bytes": 90964,
+    "sha256": "5374fbf852512026af29db06942ec0f3f8fa7c24591151755e3aa06474888bd0",
+    "retrievedAt": "2026-10-22T15:01:21.487Z",
+    "license": "Unsplash License",
+    "licenseUrl": "https://unsplash.com/license"
+  }
+]

@@ -5,14 +5,23 @@ import { useStore, navigate } from '../lib/store.jsx';
 import { Badge, Button, Empty, Icon, Modal } from './ui.jsx';
 import { coursePresentation, learningResources } from '../../shared/learning-library.js';
 import { lessonNames } from '../../shared/paths.js';
+import { learningVisuals } from '../../shared/learning-visuals.js';
 export function CourseCover({
   courseId,
   preview = false
 }) {
   const c = coursePresentation[courseId] || coursePresentation.javascript;
-  return <div className={`learning-cover cover-${courseId}`} style={{
-    '--cover-color': c.color
-  }} aria-hidden="true"><div className="cover-top"><span>STUDENTOS / LEARNING</span><span className="cover-edition">FIELD NOTES / {String(Object.keys(coursePresentation).indexOf(courseId) + 1).padStart(2, "0")}</span></div><div className="cover-visual"><SubjectArt type={courseId} /></div><div className="cover-bottom"><strong>{c.label}</strong><span>{preview ? 'LESSON PREVIEW' : 'LEARN • BUILD • EXPLAIN'}</span></div>{preview && <span className="cover-play"><Icon name="Play" size={21} /></span>}</div>;
+  const visual = learningVisuals[courseId] || learningVisuals.javascript;
+  const [failed, setFailed] = useState(false);
+  return <div className={`learning-cover editorial-cover cover-${courseId}`} style={{
+    '--cover-color': c.color,
+    '--cover-accent': visual.accent
+  }} aria-hidden="true">
+    {!failed && <img className="cover-photograph" src={`/learning/${visual.image}-640.webp`} srcSet={`/learning/${visual.image}-640.webp 640w, /learning/${visual.image}-1200.webp 1200w`} sizes="(max-width: 700px) 90vw, 32vw" width="640" height="400" loading="lazy" decoding="async" alt="" onError={() => setFailed(true)} />}
+    <div className="cover-shade" /><div className="cover-top"><span>STUDENTOS LEARNING</span><span>{visual.number} / 12</span></div>
+    <div className="cover-editorial-body"><span className="cover-subject-mark">{visual.mark === 'javascript' ? <b>JS</b> : visual.mark ? <img src={`/brands/${visual.mark}.svg`} width="36" height="36" alt="" loading="lazy" /> : <Icon name={visual.icon} size={33} />}</span><strong>{visual.title}</strong><span>{visual.subtitle}</span></div>
+    <div className="cover-bottom"><span>{preview ? 'COURSE PREVIEW' : 'READ · PRACTISE · BUILD'}</span><span className="cover-arrow"><Icon name={preview ? 'Play' : 'ArrowUpRight'} size={17} /></span></div>
+  </div>;
 }
 export function CoursePreview({
   course,

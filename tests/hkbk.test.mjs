@@ -218,7 +218,7 @@ test('HTTP password login blocks chooser bypass and registration cannot create a
     });
     assert.equal(student.status, 200);
     assert.equal(student.data.profile.year, 4);
-    assert.equal(student.data.communityPeople.length, 500);
+    assert.equal(student.data.communityPeople.length, 900);
     const next = await call({
       mode: 'register',
       name: 'New Student',
