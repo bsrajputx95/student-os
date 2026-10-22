@@ -1,0 +1,120 @@
+{
+  "measuredOn": "2026-10-22",
+  "environment": "https://studentos-hkbk.vercel.app",
+  "baseline": [
+    {
+      "path": "/api/catalog",
+      "method": "GET",
+      "status": 200,
+      "ms": 2141,
+      "bytes": 1465114
+    },
+    {
+      "path": "/api/session",
+      "method": "POST",
+      "status": 200,
+      "ms": 6978,
+      "bytes": 882172
+    },
+    {
+      "path": "/api/state",
+      "method": "GET",
+      "status": 200,
+      "ms": 755,
+      "bytes": 882172
+    },
+    {
+      "path": "/api/state",
+      "method": "GET",
+      "status": 200,
+      "ms": 447,
+      "bytes": 882172
+    },
+    {
+      "path": "/api/state",
+      "method": "GET",
+      "status": 200,
+      "ms": 660,
+      "bytes": 882172
+    }
+  ],
+  "after": [
+    {
+      "path": "health-first-cold-migration",
+      "method": "GET",
+      "status": 200,
+      "ms": 1599,
+      "bytes": 126
+    },
+    {
+      "path": "catalog-cdn",
+      "method": "GET",
+      "status": 200,
+      "ms": 1003,
+      "bytes": 1465114
+    },
+    {
+      "path": "/api/session",
+      "method": "POST",
+      "status": 200,
+      "ms": 2082,
+      "bytes": 586774
+    },
+    {
+      "path": "/api/state",
+      "method": "GET",
+      "status": 200,
+      "ms": 736,
+      "bytes": 586774
+    },
+    {
+      "path": "/api/state",
+      "method": "GET",
+      "status": 200,
+      "ms": 562,
+      "bytes": 586774
+    },
+    {
+      "path": "/api/state",
+      "method": "GET",
+      "status": 200,
+      "ms": 715,
+      "bytes": 586774
+    },
+    {
+      "path": "bookmark-save",
+      "method": "POST",
+      "status": 200,
+      "ms": 2254,
+      "bytes": 586913
+    },
+    {
+      "path": "bookmark-durable-read",
+      "method": "GET",
+      "status": 200,
+      "ms": 519,
+      "bytes": 586891
+    },
+    {
+      "path": "bookmark-restore",
+      "method": "POST",
+      "status": 200,
+      "ms": 3732,
+      "bytes": 586796
+    },
+    {
+      "path": "faculty-login",
+      "method": "POST",
+      "status": 200,
+      "ms": 2341,
+      "bytes": 407389
+    },
+    {
+      "path": "faculty-roster",
+      "method": "GET",
+      "status": 200,
+      "ms": 1486,
+      "bytes": 3938153
+    }
+  ]
+}

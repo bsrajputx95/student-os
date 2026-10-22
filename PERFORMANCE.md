@@ -16,3 +16,20 @@ The public before/after timings are recorded below after the release is live. Me
 ## Baseline
 
 On the previous public deployment: catalog 2,141 ms; sign-in 6,978 ms; state reads 755 / 447 / 660 ms. The student state response was 882,172 decoded bytes.
+
+## Verified public release
+
+Deployment: `studentos-f79tyinne-soulwallet1-6234s-projects.vercel.app`, aliased to `studentos-hkbk.vercel.app`, source commit `f1da34e`. All responses below returned HTTP 200. Timings include response-body transfer and decoding from the same local machine as the baseline, using Node fetch with compression negotiation.
+
+| Operation | Before | After | Result |
+| --- | ---: | ---: | --- |
+| Student sign-in | 6,978 ms | 2,082 ms | 70.2% less time in this sample |
+| Initial public catalog | 2,141 ms through API | 1,003 ms through CDN | 53.2% less time; subsequent browser loads can reuse the hashed asset |
+| Student state, decoded size | 882,172 bytes | 586,774 bytes | 33.5% smaller |
+| Warm state reads | 755 / 447 / 660 ms | 736 / 562 / 715 ms | Roughly similar; no read-latency improvement claimed |
+| Bookmark save / verify / restore | Not sampled | 2,254 / 519 / 3,732 ms | Durable write verified, test change restored |
+| Faculty sign-in / roster | Not sampled | 2,341 / 1,486 ms | All 400 students retained |
+
+The first health request after deployment took 1,599 ms. The pre-existing `devops:11` bookmark survived the storage upgrade. Bhavani's readiness remained 98 and the live journey advanced normally to day 1,439. No campus reset was performed. The faculty roster still includes substantial delivery history; broader endpoint pagination and a transactional database remain the next scaling step, rather than a claimed completed production migration.
+
+Actual student dashboard, mobile practice, faculty overview and mobile/desktop roster were checked visually. The public dashboard loads with the new theme, retains its real daily task links and has no horizontal page overflow at the tested phone width.
