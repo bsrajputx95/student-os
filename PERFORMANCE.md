@@ -33,3 +33,7 @@ Deployment: `studentos-f79tyinne-soulwallet1-6234s-projects.vercel.app`, aliased
 The first health request after deployment took 1,599 ms. The pre-existing `devops:11` bookmark survived the storage upgrade. Bhavani's readiness remained 98 and the live journey advanced normally to day 1,439. No campus reset was performed. The faculty roster still includes substantial delivery history; broader endpoint pagination and a transactional database remain the next scaling step, rather than a claimed completed production migration.
 
 Actual student dashboard, mobile practice, faculty overview and mobile/desktop roster were checked visually. The public dashboard loads with the new theme, retains its real daily task links and has no horizontal page overflow at the tested phone width.
+
+## Journal response validators
+
+The journal head requests `Accept-Encoding: identity` when reading private Blob storage. This keeps the response ETag usable for conditional writes even when the head grows large enough for HTTP compression. A regression test covers a compressed response returning a weak variant ETag. A hosted login, bookmark save, subsequent read and restoration were verified after the correction.

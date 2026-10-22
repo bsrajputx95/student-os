@@ -4,6 +4,10 @@ StudentOS brings student preparation and college coordination into one workspace
 
 [Open StudentOS](https://studentos-hkbk.vercel.app/) · [Local setup](#development) · [Deployment](DEPLOYMENT.md)
 
+![Student workspace](docs/images/student-workspace.png)
+
+*Student workspace shown with a sample campus account.*
+
 ## Student workspace
 
 - **Preparation plan:** year- and role-based schedules, daily activities, study breaks, catch-up work and a scrollable journey map.
