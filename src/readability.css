@@ -281,6 +281,14 @@
   font-weight: 650;
 }
 
+.main-content .lab-brief :is(summary, summary span, code, th, .lab-caption) {
+  color: var(--text-secondary);
+}
+
+.main-content .lab-brief .lab-caption {
+  font-size: 13px;
+}
+
 :is(.growth-svg, .staff-detail-chart) text {
   fill: #526078;
   font-size: 12px;
