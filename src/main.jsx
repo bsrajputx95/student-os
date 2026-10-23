@@ -19,6 +19,7 @@ import './studio.css';
 import './bright.css';
 import './learning-polish.css';
 import './cache.css';
+import './readability.css';
 import './editor-contrast.css';
 import { registerPublicCache } from './lib/register-cache.js';
 createRoot(document.getElementById('root')).render(<React.StrictMode><ErrorBoundary><App /></ErrorBoundary></React.StrictMode>);

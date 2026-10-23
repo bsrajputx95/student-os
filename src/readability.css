@@ -1,0 +1,320 @@
+/* Reading text uses solid ink; pastel colors belong to surfaces, not body copy. */
+:root {
+  --ink: #202b3d;
+  --muted: #46546b;
+  --text-secondary: #46546b;
+  --text-caption: #526078;
+  --text-link: #5130a2;
+  color: var(--ink);
+}
+
+.main-content .page-head p,
+.staff-app .staff-page-head p,
+.modal-body > p,
+.quiet-note,
+.small-text,
+.source-caption,
+.staff-muted {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.main-content :is(.section-head p, .so-panel-head p, .so-metric > p),
+.staff-content :is(.staff-section-head p, .staff-panel-note),
+.sidebar :is(small, .nav-label),
+.staff-sidebar :is(small, .staff-nav-label),
+.workspace-footer,
+.staff-footer {
+  color: var(--text-caption);
+  font-weight: 500;
+}
+
+.main-content :is(.tabs, .filter-pills) > button,
+.staff-content :is(.tabs, .filter-pills) > button {
+  font-size: 13px;
+  font-weight: 550;
+}
+
+.tabs > button > span {
+  color: #51358c;
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.badge-peach,
+.tone-peach {
+  color: #854413;
+}
+
+.badge-pink {
+  color: #85305b;
+}
+
+.badge-gray {
+  color: #46546b;
+}
+
+.nav-item .nav-new {
+  color: var(--accent-dark);
+}
+
+.nav-item.active .nav-new {
+  color: #ffffff;
+}
+
+.main-content .college-recommended-jobs > h3 {
+  color: #243d34;
+  font-size: 16px;
+  font-weight: 650;
+}
+
+.main-content .college-recommended-jobs article h3 {
+  color: #243d34;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.55;
+  margin: 9px 0 7px;
+}
+
+.main-content .college-recommended-jobs article p {
+  color: #465c51;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.main-content .college-recommended-jobs article a {
+  color: #155e43;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.7;
+  margin-top: 8px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.main-content .real-content-note {
+  color: #3f5d4e;
+  font-size: 13px;
+}
+
+.main-content :is(.job-card-top span, .job-title > span, .job-tags > span, .job-match strong, .job-skill-row, .clean-check-list li),
+.main-content .checkbox-filter,
+.main-content :is(.chart-skill-tabs button, .chart-current > span) {
+  color: var(--text-secondary);
+}
+
+.main-content :is(.job-title > span, .job-tags > span, .clean-check-list li, .job-skill-row) {
+  font-size: 13px;
+}
+
+.main-content .job-match strong,
+.main-content .job-skill-row strong {
+  color: #315f49;
+  font-size: 12px;
+}
+
+.focus-studio-copy :is(.focus-label, .focus-details, .focus-details span) {
+  color: #ffffff;
+}
+
+.journey-preview :is(.journey-preview-summary > span, .journey-preview-summary small, .journey-preview-destination > span) {
+  color: #675178;
+}
+
+.so-streak-card :is(.so-card-eyebrow, .so-streak-value > span, .so-today-progress strong, .so-today-progress small) {
+  color: #6f461d;
+}
+
+.main-content :is(.task-main small, .task-main small span, .task-xp) {
+  color: var(--text-caption);
+}
+
+.main-content .task-main > span > span:not(.badge),
+.main-content .problem-pagination,
+.main-content .problem-pagination span {
+  color: var(--text-caption);
+}
+
+.so-quid-tip > span:first-child {
+  background: #6336e5;
+  color: #ffffff;
+}
+
+.quid-symbol sup {
+  color: #ffffff;
+}
+
+.quid-launcher > .quid-symbol {
+  background: #6238c6;
+}
+
+.main-content .progress-xp .xp-star {
+  color: #6336e5;
+}
+
+.main-content .campus-event-toolbar button {
+  color: #5c4b70;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.main-content .campus-event-art .badge-glass {
+  color: #49395b;
+  background: #ffffff;
+}
+
+.main-content :is(.campus-event-count, .campus-event-grid article small, .campus-event-outcome),
+.main-content :is(.campus-feed-order, .campus-load-earlier, .campus-load-earlier button, .campus-post > header > small, .campus-post-label small),
+.staff-content :is(.campus-feed-order, .campus-load-earlier, .campus-load-earlier button, .campus-post > header > small, .campus-post-label small) {
+  color: var(--text-caption);
+  font-size: 13px;
+}
+
+.main-content .campus-my-profile :is(button, small),
+.main-content .campus-post :is(footer > button, header .btn-ghost),
+.staff-content .campus-post :is(footer > button, header .btn-ghost) {
+  color: #5c4b70;
+}
+
+.main-content .campus-post > footer > button.is-liked,
+.staff-content .campus-post > footer > button.is-liked {
+  color: #933260;
+}
+
+.staff-app .staff-switch-role,
+.staff-app .staff-date,
+.staff-content :is(.staff-cohort-pills, .staff-cohort-pills > span, .staff-cohort-pills button, .staff-roster-toolbar > div, .staff-roster-filters label, .staff-roster-filters button),
+.staff-content :is(.staff-track-name, .staff-table-foot, .campus-roster-pagination, .staff-work-progress > div, .staff-work-progress strong, .staff-work-card > footer > small),
+.staff-content :is(.staff-match-year, .staff-match-source, .staff-match-student > label, .staff-match-skill, .staff-job-year) {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.staff-content :is(.staff-work-card > p, .staff-match-student > p, .staff-job-match > p, .staff-review-highlight > p) {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.staff-content .staff-support-row > .btn-ghost,
+.staff-content .staff-job-match > footer > a {
+  color: var(--text-link);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.staff-content .staff-placement-pulse strong,
+.staff-content .staff-job-match-top strong {
+  color: #352f48;
+  font-weight: 650;
+}
+
+.staff-content .staff-placement-pulse span,
+.staff-content .staff-welcome-metrics span {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.staff-content .staff-match-skill-tags > .ready {
+  color: #315f49;
+}
+
+.staff-content .staff-campus-mosaic span {
+  color: var(--text-secondary);
+}
+
+.staff-content .staff-support-row > div > button > span {
+  color: #5b397d;
+}
+
+.staff-app .staff-content p,
+.main-content .college-assignment-card > .college-feedback-preview {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.main-content .college-assignment-deadline,
+.main-content .assessment-metrics small,
+.main-content .course-certificate-card small,
+.main-content .interview-config label,
+.main-content .resume-paper > header p {
+  color: var(--text-caption);
+}
+
+.main-content .college-assignment-grade {
+  color: #315f49;
+  font-weight: 650;
+}
+
+.main-content .project-cover .badge-glass,
+.main-content .interview-room-top .badge-gray {
+  color: #46546b;
+  background: #f1f4f8;
+}
+
+:is(.main-content, .staff-content) .campus-chat :is(header small, aside small, .campus-chat-body strong, .campus-chat-body small) {
+  color: #514263;
+}
+
+:is(.main-content, .staff-content) .campus-chat-body p,
+.staff-content .campus-my-profile button {
+  color: #46546b;
+}
+
+.staff-content .staff-outreach-receipts > span,
+.staff-content :is(.staff-week-chart strong, .staff-readiness-bands strong, .staff-readiness-bands b, .staff-report-assignment strong, .staff-report-assignment span) {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.quiz-modal .quiz-step > span:not(.badge),
+.quiz-modal .answer-options button:not(.selected) > span {
+  color: #514263;
+  font-weight: 600;
+}
+
+.quiz-modal .answer-options button.selected > span {
+  color: #ffffff;
+  background: #6743e3;
+  font-weight: 650;
+}
+
+:is(.growth-svg, .staff-detail-chart) text {
+  fill: #526078;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Dark covers keep light text; do not inherit ink intended for white cards. */
+.editorial-cover :is(.cover-top, .cover-bottom, .cover-editorial-body > span:last-child),
+.main-content .learn-feature .badge-glass {
+  color: #ffffff;
+}
+
+.editorial-cover .cover-top,
+.editorial-cover .cover-bottom > span {
+  opacity: 1;
+}
+
+.editorial-cover .cover-bottom > span {
+  color: #ffffff;
+}
+
+.course-card .course-cover > .badge {
+  color: #334155;
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  backdrop-filter: none;
+}
+
+@media (max-width: 700px) {
+  .college-recommended-jobs > div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .main-content .college-recommended-jobs article h3 {
+    overflow-wrap: anywhere;
+  }
+}
