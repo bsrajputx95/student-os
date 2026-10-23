@@ -1,0 +1,59 @@
+/* Dark code surfaces keep their own palette instead of inheriting form colors. */
+.lab-editor > textarea.lab-code,
+.main-content textarea.code-editor,
+.modal-body textarea.code-editor,
+.staff-content textarea.code-editor {
+  background: #1d2333;
+  color: #e6edf3;
+  -webkit-text-fill-color: #e6edf3;
+  caret-color: #a7f3d0;
+  color-scheme: dark;
+  font-family: Consolas, 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  opacity: 1;
+}
+
+.lab-editor > textarea.lab-code:read-only {
+  background: #23293b;
+  color: #e6edf3;
+  -webkit-text-fill-color: #e6edf3;
+}
+
+.lab-editor > textarea.lab-code::placeholder,
+.main-content textarea.code-editor::placeholder,
+.modal-body textarea.code-editor::placeholder,
+.staff-content textarea.code-editor::placeholder {
+  color: #a6b4c8;
+  -webkit-text-fill-color: #a6b4c8;
+  opacity: 1;
+}
+
+.lab-editor > textarea.lab-code::selection,
+.main-content textarea.code-editor::selection,
+.modal-body textarea.code-editor::selection,
+.staff-content textarea.code-editor::selection {
+  background: #b9d3ff;
+  color: #15203a;
+  -webkit-text-fill-color: #15203a;
+}
+
+.lab-file-tabs > button,
+.lab-file-tabs > span {
+  color: #cbd5e1;
+  font-size: 12px;
+}
+
+.lab-file-tabs > .active {
+  color: #ffffff;
+  border-bottom-color: #c4b5fd;
+}
+
+@media (max-width: 700px) {
+  .lab-editor > textarea.lab-code,
+  .main-content textarea.code-editor,
+  .modal-body textarea.code-editor,
+  .staff-content textarea.code-editor {
+    font-size: 16px;
+  }
+}
